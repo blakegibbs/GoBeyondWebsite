@@ -14,17 +14,11 @@ Show the link that contains should open and close the topnav (.icon)
     right: 0;
     top: 0;
     display: block;
-    cursor: pointer; } }
-
-@media screen and (max-width: 900px) {
-  header {
-    display: none; } }
-
-/*
-The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. 
-This class makes the topnav look good on small screens (display the links vertically instead of horizontally)
-*/
-@media screen and (max-width: 1400px) {
+    cursor: pointer; }
+  /*
+    The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. 
+    This class makes the topnav look good on small screens (display the links vertically instead of horizontally)
+    */
   .topnav.responsive {
     position: relative; }
   .topnav.responsive a.icon {
@@ -36,29 +30,26 @@ This class makes the topnav look good on small screens (display the links vertic
     display: block;
     text-align: left; } }
 
-* {
-  box-sizing: border-box; }
+@media screen and (min-width: 1600px) {
+  .content-left {
+    width: 30% !important; } }
 
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 2rem; }
+@media screen and (max-width: 900px) {
+  body > header {
+    display: none; } }
 
-.white-link {
-  color: white;
-  text-decoration: none; }
-
-.logo-image {
-  background: url(../img/logo.jpg);
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: inline-block;
-  flex-shrink: 0;
-  height: 99px;
-  width: 350px;
-  flex-shrink: 0; }
+@media screen and (max-width: 1200px) {
+  .content-right {
+    display: none !important; }
+  .content-left {
+    margin-left: 12vw !important;
+    margin-right: 12vw !important;
+    width: 100% !important;
+    display: block;
+    padding: 0; }
+  .main-wrap {
+    display: block;
+    width: 100%; } }
 
 .topnav {
   background-color: white;
@@ -162,6 +153,30 @@ This class makes the topnav look good on small screens (display the links vertic
 .dropdown:hover .dropdown-content {
   display: block; }
 
+* {
+  box-sizing: border-box; }
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem; }
+
+.white-link {
+  color: white;
+  text-decoration: none; }
+
+.logo-image {
+  background: url(../img/logo.jpg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  flex-shrink: 0;
+  height: 99px;
+  width: 350px;
+  flex-shrink: 0; }
+
 body {
   background: white;
   color: black;
@@ -207,7 +222,7 @@ h3 {
   h1.lg-heading,
   h2.lg-heading,
   h3.lg-heading {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #b99273; }
   h1.sm-heading,
   h2.sm-heading,
@@ -237,18 +252,52 @@ main {
     main#home h1 {
       margin-top: 5vh;
       font-weight: bold;
-      margin-bottom: 30px; }
+      margin-bottom: 30px;
+      font-size: 40px; }
   main .main-wrap {
     display: flex;
-    justify-content: space-between; }
-  main .content-left,
-  main .content-right {
-    width: 48%; }
+    justify-content: center; }
   main .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #b99273;
+    color: black;
+    text-align: center;
     min-height: 40px; }
 
 .content-left {
-  margin-left: 12vw; }
+  display: block;
+  margin-left: 12vw;
+  width: 40vw; }
+
+.content-right {
+  display: block;
+  margin-right: 12vw;
+  margin-left: 5rem;
+  width: 30vw; }
 
 .new-line {
   display: block; }
+
+.gallery {
+  width: 100%; }
+  .gallery .image {
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    padding-bottom: 56.25%;
+    position: relative;
+    background-repeat: no-repeat; }
+  .gallery #image1 {
+    background-image: url(../img/2025-brochure-cover.jpg); }
+  .gallery #image2 {
+    background-image: url(../img/sunday-times-05Feb23.jpg); }
+  .gallery #image3 {
+    background-image: url(../img/iceland-rainbow-walk.jpg); }
+  .gallery #image4 {
+    background-image: url(../img/home-page-group.jpg); }
+  .gallery .description {
+    text-align: center;
+    align-items: center; }

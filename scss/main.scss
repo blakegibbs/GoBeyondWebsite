@@ -1,5 +1,6 @@
 @import 'config'; //stores all variables and mixins
-@import 'menu';
+@import 'menu'; //for the pop out menu
+@import 'menuBar'; //for the top menu bar
 
 * {
     box-sizing: border-box;
@@ -24,132 +25,6 @@
     flex-shrink: 0;
 }
 
-//background of the top nav bar
-.topnav {
-    background-color: $primary-colour;
-    overflow: visible;
-    /* Changed from 'hidden' */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    height: 99px;
-    align-content: space-evenly;
-    grid-template-columns: auto auto auto;
-    align-items: center;
-    padding: 0.1rem;
-    position: relative;
-
-
-    .logo-image {
-        position: relative;
-        left: 0;
-        z-index: 0;
-    }
-
-    //style the links within
-    .nav-link {
-        float: left;
-        color: black;
-        text-align: center;
-        padding-left: 2vw;
-        padding-right: 2vw;
-        text-decoration: none;
-        font-size: 1rem;
-        border-style: groove;
-        border-top: hidden;
-        border-bottom: hidden;
-        border-left: hidden;
-        border-width: 1px;
-        padding-top: 2rem;
-        height: 99px;
-        border-color: rgba(0, 0, 0, 0.1);
-
-        &:hover {
-            color: $secondary-colour;
-        }
-    }
-
-    //highlight the current page
-    .active-nav-link {
-        float: left;
-        text-align: center;
-        padding-left: 2vw;
-        padding-right: 2vw;
-        text-decoration: none;
-        font-size: 1rem;
-        border-style: groove;
-        border-top: hidden;
-        border-bottom: hidden;
-        border-width: 1px;
-        padding-top: 2rem;
-        height: 99px;
-        background-color: white;
-        color: $secondary-colour;
-        border-color: rgba(0, 0, 0, 0.1);
-    }
-
-    .icon {
-        display: none;
-        float: left;
-        color: black;
-        text-align: center;
-        padding-left: 2vw;
-        padding-right: 2vw;
-        text-decoration: none;
-        font-size: 1rem;
-        padding-top: 2rem;
-        height: 99px;
-        border-color: rgba(0, 0, 0, 0.1);
-
-        &:hover {
-            color: $secondary-colour;
-        }
-    }
-}
-
-/* Dropdown Menu */
-.dropdown {
-    order: 2;
-    position: relative;
-    display: inline-block;
-}
-
-.dropbtn {
-    background-color: white;
-    color: black;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-.dropdown-content {
-    display: none;
-    top: 99px;
-    left: 0;
-    position: absolute;
-    background-color: white;
-    min-width: 200px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 10;
-
-    a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-
-    a:hover {
-        background-color: $secondary-colour;
-        color: white;
-    }
-}
-
-/* Show dropdown on hover */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
 
 body {
     background: $primary-colour;
@@ -207,7 +82,7 @@ h3 {
     font-weight: 400;
 
     &.lg-heading {
-        font-size: 2rem;
+        font-size: 2.5rem;
         color: $secondary-colour;
     }
 
@@ -245,30 +120,74 @@ main {
             margin-top: 5vh;
             font-weight: bold;
             margin-bottom: 30px;
+            font-size: 40px;
         }
     }
 
     .main-wrap {
         display: flex;
-        justify-content: space-between;
-    }
-
-    .content-left,
-    .content-right {
-        width: 48%;
+        justify-content: center;
     }
 
     .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: $secondary-colour;
+        color: black;
+        text-align: center;
         min-height: 40px;
     }
 }
 
 .content-left {
+    display: block;
     margin-left: 12vw;
+    width: 40vw;
 }
 
-.content-right {}
+.content-right {
+    display: block;
+    margin-right: 12vw;
+    margin-left: 5rem;
+    width: 30vw;
+}
 
 .new-line {
     display: block;
+}
+
+.gallery {
+    width: 100%;
+
+    .image {
+        background-size: contain;
+        background-position: center;
+        width: 100%;
+        padding-bottom: 56.25%;
+        position: relative;
+        background-repeat: no-repeat;
+    }
+
+    #image1 {
+        background-image: $sidebar-image1;
+    }
+
+    #image2 {
+        background-image: $sidebar-image2;
+    }
+
+    #image3 {
+        background-image: $sidebar-image3;
+    }
+
+    #image4 {
+        background-image: $sidebar-image4;
+    }
+
+    .description {
+        text-align: center;
+        align-items: center;
+    }
 }
