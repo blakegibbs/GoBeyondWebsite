@@ -113,6 +113,10 @@ main {
     padding-top: 0rem;
     height: 100%;
 
+    p {
+        font-size: 17px;
+    }
+
     &#home {
         overflow: visible;
 
@@ -189,5 +193,54 @@ main {
     .description {
         text-align: center;
         align-items: center;
+    }
+}
+
+.info-box-grid {
+    background-color: white;
+    width: 100%;
+    max-width: 100%;
+    margin: 30px auto;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1.5fr;
+    /* Adjust row heights here */
+    grid-template-columns: 50px 1fr 50px 1fr;
+    /* 4 columns layout */
+    grid-gap: 5px;
+}
+
+.info-box {
+    padding: 10px;
+    color: black;
+
+    h3 {
+        //font-size: 16px;
+        display: inline-block;
+
+        &.sm-heading {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    a {}
+}
+
+.dot {
+    height: 50px;
+    width: 50px;
+    background-color: $secondary-colour;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+
+    i {
+        color: white;
+        z-index: 1;
     }
 }

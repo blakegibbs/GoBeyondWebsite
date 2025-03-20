@@ -24,10 +24,7 @@ $sidebar-image4: url(../img/home-page-group.jpg);
     flex-shrink: 0;
 }
 
-/*
-When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). 
-Show the link that contains should open and close the topnav (.icon)
-*/
+//hide all top bar icons and show the widgit for the side menu
 @media screen and (max-width: 1400px) {
     .topnav a {
         display: none;
@@ -69,22 +66,34 @@ Show the link that contains should open and close the topnav (.icon)
     }
 }
 
-@media screen and (min-width: 1600px) {
+//for large screens
+@media screen and (min-width: 1920px) {
+
+    //move the content to the centre
     .content-left {
         width: 30% !important;
     }
 }
 
 
-// For smaller screens
+// For smaller screens (2x6 grid) and no header
 @media screen and (max-width: 900px) {
     body>header {
         display: none;
     }
+
+    .info-box-grid {
+        grid-template-columns: 50px 1fr !important;
+        /* Keep 50px for icons */
+        grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 1fr 0.5fr !important;
+        /* 6 rows layout */
+        grid-auto-flow: row !important;
+        /* Ensure the items flow properly */
+    }
 }
 
 // For smaller screens
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1000px) {
 
     .content-right {
         display: none !important;
@@ -97,10 +106,20 @@ Show the link that contains should open and close the topnav (.icon)
         display: block;
         padding: 0;
     }
+}
+
+@media screen and (max-width: 1300px) {
+
+    .content-left {
+        margin-left: 12vw !important;
+        //margin-right: 12vw !important;
+        width: 100% !important;
+        display: block;
+        padding: 0;
+    }
 
     .main-wrap {
         display: block;
         width: 100%;
     }
-
 }
