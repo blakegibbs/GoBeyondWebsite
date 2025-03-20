@@ -1,4 +1,5 @@
-@import 'config';
+@import 'config'; //stores all variables and mixins
+@import 'menu';
 
 * {
     box-sizing: border-box;
@@ -26,7 +27,8 @@
 //background of the top nav bar
 .topnav {
     background-color: $primary-colour;
-    overflow: hidden;
+    overflow: visible;
+    /* Changed from 'hidden' */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -37,15 +39,39 @@
     padding: 0.1rem;
     position: relative;
 
+
     .logo-image {
-        position: absolute;
+        position: relative;
         left: 0;
+        z-index: 0;
     }
 
     //style the links within
-    a {
+    .nav-link {
         float: left;
         color: black;
+        text-align: center;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        text-decoration: none;
+        font-size: 1rem;
+        border-style: groove;
+        border-top: hidden;
+        border-bottom: hidden;
+        border-left: hidden;
+        border-width: 1px;
+        padding-top: 2rem;
+        height: 99px;
+        border-color: rgba(0, 0, 0, 0.1);
+
+        &:hover {
+            color: $secondary-colour;
+        }
+    }
+
+    //highlight the current page
+    .active-nav-link {
+        float: left;
         text-align: center;
         padding-left: 2vw;
         padding-right: 2vw;
@@ -57,16 +83,6 @@
         border-width: 1px;
         padding-top: 2rem;
         height: 99px;
-        border-color: rgba(0, 0, 0, 0.1);
-
-        //change the colour of links when hover
-        &:hover {
-            color: $secondary-colour;
-        }
-    }
-
-    //highlight the current page
-    .active-nav-link {
         background-color: white;
         color: $secondary-colour;
         border-color: rgba(0, 0, 0, 0.1);
@@ -74,11 +90,67 @@
 
     .icon {
         display: none;
+        float: left;
+        color: black;
+        text-align: center;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        text-decoration: none;
+        font-size: 1rem;
+        padding-top: 2rem;
+        height: 99px;
+        border-color: rgba(0, 0, 0, 0.1);
+
+        &:hover {
+            color: $secondary-colour;
+        }
     }
 }
 
+/* Dropdown Menu */
+.dropdown {
+    order: 2;
+    position: relative;
+    display: inline-block;
+}
 
-// Body
+.dropbtn {
+    background-color: white;
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    top: 99px;
+    left: 0;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+
+    a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    a:hover {
+        background-color: $secondary-colour;
+        color: white;
+    }
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 body {
     background: $primary-colour;
     color: black;
@@ -90,7 +162,7 @@ body {
     line-height: 1.5;
 
     header {
-        padding-bottom: 25px;
+        padding-bottom: 2px;
         background-color: $secondary-colour;
     }
 
@@ -108,17 +180,14 @@ body {
             margin-top: 0px;
             padding-right: 1rem;
             text-decoration: none;
-            @include easeOut(); //outside of hover so it fades away too
+            @include easeOut();
 
             &:hover {
-                color: lightgray; //change the colour
+                color: lightgray;
             }
         }
     }
 }
-
-
-
 
 .image-bar {
     background: $home-image;
@@ -128,9 +197,9 @@ body {
     width: 100%;
     margin: 0;
     position: relative;
+    z-index: 1;
 }
 
-// Headings
 h1,
 h2,
 h3 {
@@ -138,7 +207,7 @@ h3 {
     font-weight: 400;
 
     &.lg-heading {
-        font-size: 2rem; //rem is multiplier of 16px
+        font-size: 2rem;
         color: $secondary-colour;
     }
 
@@ -149,16 +218,15 @@ h3 {
     }
 }
 
-// Links
 a {
     color: $secondary-colour;
 }
 
-// Header
 header {
-    //position: fixed;
+    display: flex;
+    justify-content: space-between;
     padding: 0.5rem 0;
-    z-index: 2; //sprite layer of 2, nothing will overlap it
+    z-index: 2;
     width: 100%;
 }
 
@@ -170,14 +238,37 @@ main {
     padding-top: 0rem;
     height: 100%;
 
-    //affect anything with id of home
     &#home {
-        overflow: visible; //show scroll bar
+        overflow: visible;
 
         h1 {
-            margin-top: 5vh; //vh is viewport height, 100 slices, vw is same for width
+            margin-top: 5vh;
             font-weight: bold;
             margin-bottom: 30px;
         }
     }
+
+    .main-wrap {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .content-left,
+    .content-right {
+        width: 48%;
+    }
+
+    .footer {
+        min-height: 40px;
+    }
+}
+
+.content-left {
+    margin-left: 12vw;
+}
+
+.content-right {}
+
+.new-line {
+    display: block;
 }
