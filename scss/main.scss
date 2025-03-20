@@ -1,6 +1,183 @@
-$primary-colour: white;
+@import 'config';
 
+* {
+    box-sizing: border-box;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+.white-link {
+    color: white;
+    text-decoration: none;
+}
+
+.logo-image {
+    @include logoImage();
+    height: 99px;
+    width: 350px;
+    flex-shrink: 0;
+}
+
+//background of the top nav bar
+.topnav {
+    background-color: $primary-colour;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 99px;
+    align-content: space-evenly;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+    padding: 0.1rem;
+    position: relative;
+
+    .logo-image {
+        position: absolute;
+        left: 0;
+    }
+
+    //style the links within
+    a {
+        float: left;
+        color: black;
+        text-align: center;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        text-decoration: none;
+        font-size: 1rem;
+        border-style: groove;
+        border-top: hidden;
+        border-bottom: hidden;
+        border-width: 1px;
+        padding-top: 2rem;
+        height: 99px;
+        border-color: rgba(0, 0, 0, 0.1);
+
+        //change the colour of links when hover
+        &:hover {
+            color: $secondary-colour;
+        }
+    }
+
+    //highlight the current page
+    .active-nav-link {
+        background-color: white;
+        color: $secondary-colour;
+        border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .icon {
+        display: none;
+    }
+}
+
+
+// Body
 body {
     background: $primary-colour;
     color: black;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", Helvetica, Arial, Verdana, sans-serif;
+    line-height: 1.5;
+
+    header {
+        padding-bottom: 25px;
+        background-color: $secondary-colour;
+    }
+
+    .contact-details {
+        float: left;
+        padding-left: 20px;
+        color: white;
+        font-size: 13px;
+    }
+
+    .icons {
+        a {
+            float: right;
+            color: black;
+            margin-top: 0px;
+            padding-right: 1rem;
+            text-decoration: none;
+            @include easeOut(); //outside of hover so it fades away too
+
+            &:hover {
+                color: lightgray; //change the colour
+            }
+        }
+    }
+}
+
+
+
+
+.image-bar {
+    background: $home-image;
+    background-size: cover;
+    background-position: center;
+    height: 57vh;
+    width: 100%;
+    margin: 0;
+    position: relative;
+}
+
+// Headings
+h1,
+h2,
+h3 {
+    margin: 0;
+    font-weight: 400;
+
+    &.lg-heading {
+        font-size: 2rem; //rem is multiplier of 16px
+        color: $secondary-colour;
+    }
+
+    &.sm-heading {
+        font-weight: 600;
+        margin-bottom: 2rem;
+        padding: 0.2rem 0rem;
+    }
+}
+
+// Links
+a {
+    color: $secondary-colour;
+}
+
+// Header
+header {
+    //position: fixed;
+    padding: 0.5rem 0;
+    z-index: 2; //sprite layer of 2, nothing will overlap it
+    width: 100%;
+}
+
+.text-secondary {
+    color: $accent-colour;
+}
+
+main {
+    padding-top: 0rem;
+    height: 100%;
+
+    //affect anything with id of home
+    &#home {
+        overflow: visible; //show scroll bar
+
+        h1 {
+            margin-top: 5vh; //vh is viewport height, 100 slices, vw is same for width
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+    }
 }
