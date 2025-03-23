@@ -58,6 +58,8 @@
             opacity: 1; // full opacity for the active slide
             width: 0.75rem; // slightly bigger size
             height: 0.75rem;
+            transform: translate(0, -12.5%); // moves it slightly up and left to keep it centered
         }
+
     }
 }

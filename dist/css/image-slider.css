@@ -45,4 +45,5 @@
     .slider-nav a.active {
       opacity: 1;
       width: 0.75rem;
-      height: 0.75rem; }
+      height: 0.75rem;
+      transform: translate(0, -12.5%); }
