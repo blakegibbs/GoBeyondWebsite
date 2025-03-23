@@ -1,6 +1,7 @@
 @import 'config'; //stores all variables and mixins
 @import 'menu'; //for the pop out menu
 @import 'menuBar'; //for the top menu bar
+@import 'image-slider'; //for the image slider on the homepage
 
 * {
     box-sizing: border-box;
@@ -65,7 +66,7 @@ body {
 }
 
 .image-bar {
-    background: $home-image;
+    //background: $home-image;
     background-size: cover;
     background-position: center;
     height: 57vh;

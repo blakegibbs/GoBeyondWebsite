@@ -1,0 +1,57 @@
+.container {}
+
+.slider-wrapper {
+    position: relative;
+    width: 100vw; //force the slider to use this much space and dynamically resize.
+    margin: 0 auto; //will centre automatically
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    aspect-ratio: 7/2; //1400 x 400px images
+    overflow-x: auto; //hides the overflow images
+    scroll-snap-type: x mandatory; //controls the slider at the bottom of the panel
+    scroll-behavior: smooth;
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+
+    img {
+        flex: 1 0 100%; //take up the whole container
+        scroll-snap-align: start;
+        object-fit: cover;
+    }
+
+    /* Remove scrollbar */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
+}
+
+.slider::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari */
+}
+
+.slider-nav {
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+
+    a {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%; //creates a circle
+        background-color: #fff;
+        opacity: 0.75;
+        transition: opacity ease 250ms;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
