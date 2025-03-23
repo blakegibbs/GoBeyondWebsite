@@ -204,9 +204,13 @@
     border-radius: 50%;
     background-color: #fff;
     opacity: 0.75;
-    transition: opacity ease 250ms; }
+    transition: all ease 250ms; }
     .slider-nav a:hover {
       opacity: 1; }
+    .slider-nav a.active {
+      opacity: 1;
+      width: 0.75rem;
+      height: 0.75rem; }
 
 * {
   box-sizing: border-box; }
