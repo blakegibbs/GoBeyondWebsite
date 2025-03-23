@@ -45,13 +45,19 @@
     a {
         width: 0.5rem;
         height: 0.5rem;
-        border-radius: 50%; //creates a circle
+        border-radius: 50%; // creates a circle
         background-color: #fff;
         opacity: 0.75;
-        transition: opacity ease 250ms;
+        transition: all ease 250ms;
 
         &:hover {
             opacity: 1;
+        }
+
+        &.active {
+            opacity: 1; // full opacity for the active slide
+            width: 0.75rem; // slightly bigger size
+            height: 0.75rem;
         }
     }
 }

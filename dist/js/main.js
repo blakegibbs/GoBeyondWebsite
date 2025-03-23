@@ -39,37 +39,21 @@ function ToggleMenu() {
     }
 }
 
-document.querySelectorAll('.slider-nav a').forEach(anchor => {
-    anchor.addEventListener('click', function (event) {
-        event.preventDefault(); // Prevent the default anchor behavior
-
-        const slideIndex = this.getAttribute('data-slide'); // Get the target slide index
-        const targetSlide = document.getElementById(`slide-${slideIndex}`); // Find the target slide image
-
-        // Scroll the slider to the target image
-        targetSlide.scrollIntoView({
-            behavior: 'smooth', // Smooth scroll
-            block: 'nearest',   // Scroll to the nearest side of the element
-            inline: 'start'     // Align to the start of the container
-        });
-    });
-});
-
 document.addEventListener('DOMContentLoaded', function () {
     const slider = document.querySelector('.slider');
     const slides = document.querySelectorAll('.slider img');
-    const navLinks = document.querySelectorAll('.slider-nav a'); //select all nav links
+    const navLinks = document.querySelectorAll('.slider-nav a'); //select all navigation links
     let currentIndex = 0;
     const slideCount = slides.length;
-    let autoScrollInterval = 7000; // Time until next slide (ms)
-    let autoScrollTimer;
+    let autoScrollInterval = 7000; //time until next slide (ms)
+    let autoScrollTimer; //variable to hold the timer
 
     //scroll to the next slide
     function scrollToNextSlide() {
         if (currentIndex === slideCount - 1) {
-            currentIndex = 0;  //if at last slide, return to start
+            currentIndex = 0; //if at last slide, return to start
         } else {
-            currentIndex = currentIndex + 1;  //else continue to the next slide
+            currentIndex = currentIndex + 1; //else continue to the next slide
         }
         const targetSlide = slides[currentIndex];
 
@@ -78,19 +62,27 @@ document.addEventListener('DOMContentLoaded', function () {
             block: 'nearest',
             inline: 'start'
         });
+
+        updateActiveNav(); //update the active navigation link
     }
 
     //set to auto scroll every x seconds
     function startAutoScroll() {
-        clearInterval(autoScrollTimer); //clear any existing timer
+        clearInterval(autoScrollTimer); //clear timer
         autoScrollTimer = setInterval(scrollToNextSlide, autoScrollInterval); //start a new timer
     }
 
-    //clicking a navigation link
+    //update the active navigation link
+    function updateActiveNav() {
+        navLinks.forEach(link => link.classList.remove('active')); //remove active class from all
+        navLinks[currentIndex].classList.add('active'); //add active class to the current link
+    }
+
+    //clicking navigation link
     navLinks.forEach((link, index) => {
         link.addEventListener('click', function (event) {
             event.preventDefault(); //prevent the default link behavior
-            currentIndex = index;  //set currentIndex to the clicked link index
+            currentIndex = index; //set currentIndex to the clicked link index
             const targetSlide = slides[currentIndex];
 
             targetSlide.scrollIntoView({
@@ -99,9 +91,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 inline: 'start'
             });
 
+            updateActiveNav(); //update the active navigation link
             startAutoScroll(); //reset the auto scroll timer after manual navigation
         });
     });
 
+    updateActiveNav(); //set the fisrt active navigation link
     startAutoScroll(); //start auto scroll when the page loads
 });
