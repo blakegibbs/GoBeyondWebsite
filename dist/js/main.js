@@ -55,12 +55,14 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             currentIndex = currentIndex + 1; //else continue to the next slide
         }
-        const targetSlide = slides[currentIndex];
 
-        targetSlide.scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest',
-            inline: 'start'
+        const targetSlide = slides[currentIndex];
+        const targetPosition = targetSlide.offsetLeft; //get the left offset of the target slide
+
+        // Set the scroll position of the slider container to target the next image
+        slider.scrollTo({
+            left: targetPosition,
+            behavior: 'smooth'
         });
 
         updateActiveNav(); //update the active navigation link
@@ -84,11 +86,12 @@ document.addEventListener('DOMContentLoaded', function () {
             event.preventDefault(); //prevent the default link behavior
             currentIndex = index; //set currentIndex to the clicked link index
             const targetSlide = slides[currentIndex];
+            const targetPosition = targetSlide.offsetLeft; // Get the left offset of the target slide
 
-            targetSlide.scrollIntoView({
-                behavior: 'smooth',
-                block: 'nearest',
-                inline: 'start'
+            // Set the scroll position of the slider container to target the clicked image
+            slider.scrollTo({
+                left: targetPosition,
+                behavior: 'smooth'
             });
 
             updateActiveNav(); //update the active navigation link
@@ -96,6 +99,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    updateActiveNav(); //set the fisrt active navigation link
+    updateActiveNav(); //set the first active navigation link
     startAutoScroll(); //start auto scroll when the page loads
 });
