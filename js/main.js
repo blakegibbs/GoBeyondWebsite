@@ -1,40 +1,38 @@
+
 function TopBarRespond() {
-    var x = document.getElementById("topNavBar");
-    if (x.className === "topnav") {
-        x.className += "responsive";
-    } else {
-        x.className = "topnav"
-    }
+    toggleMenu();
 }
 
 //select DOM items
-const menuButton = document.querySelector('.topnav a.icon')
-const menu = document.querySelector('.menu');
-const menuNav = document.querySelector('.menu-nav');
+const closeMenuBtn = document.querySelector('.close-menu-btn');
+const menu = document.querySelector('.side-menu');
+const menuBranding = document.querySelector('.menu');
+const menuNav = document.querySelector('.menu-branding');
 const navItems = document.querySelectorAll('.nav-item');
 
-//set initial state of the menu
+//set initial state of menu
 let showMenu = false;
 
-//enable the menu
-function ToggleMenu() {
+//menuBtn.addEventListener('click', toggleMenu);
+
+function toggleMenu() {
     if (!showMenu) {
-        //show the menu
-        menuButton.classList.add('close');
+        //closeMenuBtn.classList.add('show');
         menu.classList.add('show');
         menuNav.classList.add('show');
+        menuBranding.classList.add('show');
         navItems.forEach(item => item.classList.add('show'));
 
-        //set the menu state
+        //set menu state
         showMenu = true;
     } else {
-        //close the menu
-        menuButton.classList.add('show');
-        menu.classList.add('close');
-        menuNav.classList.add('close');
-        navItems.forEach(item => item.classList.add('close'));
+        //menuBtn.classList.remove('close');
+        menu.classList.remove('show');
+        menuNav.classList.remove('show');
+        menuBranding.classList.remove('show');
+        navItems.forEach(item => item.classList.remove('show'));
 
-        //set the menu state
+        //set menu state
         showMenu = false;
     }
 }
