@@ -6,8 +6,7 @@ function TopBarRespond() {
 //select DOM items
 const closeMenuBtn = document.querySelector('.close-menu-btn');
 const menu = document.querySelector('.side-menu');
-const menuBranding = document.querySelector('.menu');
-const menuNav = document.querySelector('.menu-branding');
+const menuNav = document.querySelector('.menu');
 const navItems = document.querySelectorAll('.nav-item');
 
 //set initial state of menu
@@ -20,7 +19,6 @@ function toggleMenu() {
         //closeMenuBtn.classList.add('show');
         menu.classList.add('show');
         menuNav.classList.add('show');
-        menuBranding.classList.add('show');
         navItems.forEach(item => item.classList.add('show'));
 
         //set menu state
@@ -29,7 +27,6 @@ function toggleMenu() {
         //menuBtn.classList.remove('close');
         menu.classList.remove('show');
         menuNav.classList.remove('show');
-        menuBranding.classList.remove('show');
         navItems.forEach(item => item.classList.remove('show'));
 
         //set menu state
