@@ -16,61 +16,55 @@
     z-index: 100;
     position: fixed;
     top: 0;
-    width: 100%;
-    opacity: 0.9; //change this probably
+    height: 100vh;
+    width: 0; // Start with width 0 to animate
     visibility: hidden;
+    right: 0; // Align the menu to the right
+    background-color: white;
+    overflow: hidden; // Make sure contents are clipped when hidden
+
+    transition: width 0.5s ease-out, visibility 0s 0.5s; // Add transition for smooth width animation
 
     &.show {
         visibility: visible;
+        width: 20%; // Expand to 20% width when shown
+        transition: width 0.5s ease-in; // Transition for width when shown
     }
 
-    &-branding,
     &-nav {
+        z-index: 101; // Ensure this layer is above the menu background
         display: flex;
         flex-flow: column wrap;
         align-items: center;
         justify-content: center;
-        float: left;
-        width: 50%;
+        width: 100%;
         height: 100vh;
         overflow: hidden;
-    }
-
-    &-nav {
         margin: 0;
         padding: 0;
-        list-style: none;
         transform: translate3d(0, -100%, 0);
         @include easeOut;
 
         &.show {
-            transform: translate3d(0, 0, 0); //slide in from the top
-        }
-    }
-
-    &-branding {
-        background-color: $primary-colour;
-        transform: translate3d(0, 100%, 0);
-
-        @include easeOut;
-
-        &.show {
-            transform: translate3d(0, 0, 0); //slide in from the top
-        }
-
-        .portrait {
-            width: 250px;
-            height: 250px;
-            background: url(../img/logo.jpg);
+            transform: translate3d(0, 0, 0); // Slide in from the top
         }
     }
 
     .nav-item {
+        list-style: none;
         transform: translate3d(600px, 0, 0);
+        border-radius: 1px;
+        border-color: lightgray;
+        border-style: ridge;
+        border-right: hidden;
+        border-left: hidden;
+        border-bottom: hidden;
+        margin-left: 30px;
+        margin-right: 30px;
         @include easeOut;
 
         &.show {
-            transform: translate3d(0, 0, 0); //slide in from the right
+            transform: translate3d(0, 0, 0); // Slide in from the right
         }
 
         &.current>a {
@@ -81,22 +75,21 @@
     .nav-link {
         display: inline-block;
         position: relative;
-        font-size: 30px;
-        text-transform: uppercase; //remove this?
-        padding: 1rem, 0;
-        font-weight: 300;
-        color: set-text-color($primary-colour);
+        font-size: 1rem;
+        padding: 2rem 0;
+        font-weight: bold;
+        color: black;
         text-decoration: none;
         @include easeOut;
 
-        &::hover {
+        &:hover {
             color: $secondary-colour;
         }
     }
 }
 
-//delay each nav item slide by 0.1s
-@for $x from 1 through 4 {
+// Delay each nav item slide by 0.1s
+@for $x from 1 through 7 {
     .nav-item:nth-child(#{$x}) {
         transition-delay: $x * 0.1s;
     }
