@@ -35,11 +35,8 @@
     display: none; }
   .info-box-grid {
     grid-template-columns: 50px 1fr !important;
-    /* Keep 50px for icons */
     grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 1fr 0.5fr !important;
-    /* 6 rows layout */
-    grid-auto-flow: row !important;
-    /* Ensure the items flow properly */ } }
+    grid-auto-flow: row !important; } }
 
 @media screen and (max-width: 1000px) {
   .content-right {
@@ -103,6 +100,9 @@
     visibility: visible;
     width: 50vw;
     transition: width 0.2s ease-in; }
+  @media (max-width: 900px) {
+    .side-menu.show {
+      width: 100vw; } }
   .side-menu-nav {
     z-index: 101;
     display: flex;
