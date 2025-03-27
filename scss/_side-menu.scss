@@ -41,7 +41,7 @@
 
     &.show {
         visibility: visible;
-        width: 40vw;
+        width: 50vw;
         transition: width 0.2s ease-in;
     }
 
@@ -94,8 +94,12 @@
         }
     }
 
-    .nav-link {
+    .nav-link,
+    .dropdown-btn {
         display: inline-block;
+        border: none;
+        background-color: white;
+        text-align: left;
         position: relative;
         font-size: 1rem;
         font-family: "Helvetica", "Arial", "Verdana", "sans-serif";
@@ -109,28 +113,73 @@
         &:hover {
             color: $secondary-colour; // Change the text color to secondary color on hover
         }
+
+        &.secondary {
+            font-size: 1rem;
+            font-family: "Helvetica", "Arial", "Verdana", "sans-serif";
+            padding: 8px 16px;
+            font-weight: 400;
+        }
     }
-}
 
-.contact {
-    transform: translate3d(600px, 0, 0);
-    font-weight: bold;
-    margin-top: 3rem;
-    margin: 2rem;
-    color: black;
+    .dropdown-container {
+        display: none;
+        background-color: white;
+        z-index: 10;
 
-    a {
+        a {
+            color: black;
+            padding: 5px 16px;
+            display: block;
+            font-size: 1rem;
+            font-family: "Helvetica", "Arial", "Verdana", "sans-serif";
+            padding: 0.5rem 3;
+            //font-weight: bold;
+            color: black;
+            text-decoration: none;
+        }
+
+        &.secondary {
+            padding: 0px 3rem;
+
+        }
+
+        a:hover {
+            background-color: $secondary-colour;
+            color: white;
+        }
+
+        &.show {
+            display: block;
+        }
+
+        .fa-caret-down {
+            //float: right; not working properly
+            padding-right: 8px;
+        }
+    }
+
+
+    .contact {
+        transform: translate3d(600px, 0, 0);
+        font-weight: bold;
+        margin-top: 3rem;
+        margin: 2rem;
         color: black;
+
+        a {
+            color: black;
+        }
+
+        &.show {
+            transform: translate3d(0, 0, 0); // Slide in from the right
+        }
     }
 
-    &.show {
-        transform: translate3d(0, 0, 0); // Slide in from the right
-    }
-}
-
-// Delay each nav item slide by 0.1s
-@for $x from 1 through 7 {
-    .nav-item:nth-child(#{$x}) {
-        transition-delay: $x * 0.05s;
+    // Delay each nav item slide by 0.1s
+    @for $x from 1 through 7 {
+        .nav-item:nth-child(#{$x}) {
+            transition-delay: $x * 0.05s;
+        }
     }
 }
