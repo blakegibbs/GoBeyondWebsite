@@ -35,7 +35,7 @@
     display: none; }
   .info-box-grid {
     grid-template-columns: 50px 1fr !important;
-    grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 1fr 0.5fr !important;
+    grid-template-rows: 0.8fr 0.8fr 0.8fr 0.8fr 1fr 0.7fr !important;
     grid-auto-flow: row !important; } }
 
 @media screen and (max-width: 1000px) {
