@@ -380,10 +380,8 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  /* Align at the start to prevent any gaps */
   min-height: 30vh;
   max-width: 95rem;
-  overflow-x: hidden;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch; }
   .card-wrapper p {
@@ -393,9 +391,8 @@
 .card-list {
   display: flex;
   flex-wrap: nowrap;
-  gap: 20px;
-  margin: 0;
-  /* Remove margin to ensure no extra space */ }
+  gap: 0px;
+  margin: 0; }
 
 .card-list .card-item {
   color: black;
@@ -403,18 +400,45 @@
   width: 500px;
   padding: 35px;
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-direction: column;
   flex-shrink: 0;
-  scroll-snap-align: start;
-  /* Make each item snap into place */ }
+  scroll-snap-align: start; }
+
+.card-list .card-item.id-1 .holiday-image {
+  border-color: lightgray; }
+
+.card-list .card-item.id-2 .holiday-image {
+  border-color: red; }
+
+.card-list .card-item.id-3 .holiday-image {
+  border-color: #5fff5f; }
+
+.card-list .card-item.id-4 .holiday-image {
+  border-color: #af9067; }
+
+.card-list .card-item.id-5 .holiday-image {
+  border-color: yellow; }
+
+.card-list .card-item.id-6 .holiday-image {
+  border-color: #45c8fc; }
+
+.card-list .card-item.id-7 .holiday-image {
+  border-color: #64380f; }
+
+.card-list .card-item.id-8 .holiday-image {
+  border-color: orange; }
+
+.card-list .card-item.id-9 .holiday-image {
+  border-color: #000a99; }
+
+.card-list .card-item.id-10 .holiday-image {
+  border-color: #ca57ff; }
 
 .card-list .card-item .holiday-image {
   width: 450px;
   height: 300px;
-  border: 6px solid black;
-  border-radius: 5px; }
+  border: 6px solid; }
 
 .card-list .card-item .holiday-name {
   font-size: 1.15rem;
@@ -437,8 +461,7 @@
     color: white; }
 
 * {
-  box-sizing: border-box;
-  overflow-x: hidden; }
+  box-sizing: border-box; }
 
 .header-content {
   display: flex;
