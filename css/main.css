@@ -382,6 +382,7 @@
   justify-content: flex-start;
   min-height: 30vh;
   max-width: 95rem;
+  overflow-x: hidden;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch; }
   .card-wrapper p {
