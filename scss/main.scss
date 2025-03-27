@@ -1,5 +1,5 @@
 @import 'config'; //stores all variables and mixins
-@import 'side-menu'; //for the pop out menu
+@import 'side-menu'; //for the pop-out menu
 @import 'menu-bar'; //for the top menu bar
 @import 'image-slider'; //for the image slider on the homepage
 
@@ -25,7 +25,6 @@
     width: 350px;
     flex-shrink: 0;
 }
-
 
 body {
     background: $primary-colour;
@@ -67,7 +66,6 @@ body {
 }
 
 .image-bar {
-    //background: $home-image;
     background-size: cover;
     background-position: center;
     height: 57vh;
@@ -151,6 +149,7 @@ main {
     display: block;
     margin-left: 12vw;
     width: 40vw;
+    //margin-right: 11vw;
 }
 
 .content-right {
@@ -158,6 +157,34 @@ main {
     margin-right: 12vw;
     margin-left: 5rem;
     width: 30vw;
+
+    .interactive-button {
+        background-color: $secondary-colour;
+        margin-left: auto;
+        margin-right: auto;
+        min-width: 170px;
+        width: 25vw;
+        z-index: 10;
+        color: white;
+        font-size: 1.2rem;
+        text-align: center;
+        padding: 1rem;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        margin-bottom: 20px;
+
+        &:hover {
+            background-color: $secondary-colour;
+            color: white;
+            background-color: black;
+        }
+    }
+}
+
+.central-content {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
 }
 
 .new-line {
@@ -205,9 +232,7 @@ main {
     margin: 30px auto;
     display: grid;
     grid-template-rows: 1fr 1fr 1.5fr;
-    /* Adjust row heights here */
     grid-template-columns: 50px 1fr 50px 1fr;
-    /* 4 columns layout */
     grid-gap: 5px;
 }
 
@@ -216,7 +241,6 @@ main {
     color: black;
 
     h3 {
-        //font-size: 16px;
         display: inline-block;
 
         &.sm-heading {
@@ -227,8 +251,6 @@ main {
     p {
         font-size: 16px;
     }
-
-    //a {}
 }
 
 .dot {
