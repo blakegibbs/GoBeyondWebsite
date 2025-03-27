@@ -99,17 +99,17 @@
 
 .dropdown-content {
     display: none;
-    top: 99px;
+    top: 97px;
     left: 0;
     position: absolute;
     background-color: white;
-    min-width: 200px;
+    min-width: 170px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 10;
 
     a {
         color: black;
-        padding: 12px 16px;
+        padding: 12px 10px;
         text-decoration: none;
         display: block;
     }

@@ -9,6 +9,18 @@ $sidebar-image2: url(../img/sunday-times-05Feb23.jpg);
 $sidebar-image3: url(../img/iceland-rainbow-walk.jpg);
 $sidebar-image4: url(../img/home-page-group.jpg);
 
+//holiday id colours
+$holiday-id-colour-1: lightgray;
+$holiday-id-colour-2: red;
+$holiday-id-colour-3: rgb(95, 255, 95);
+$holiday-id-colour-4: rgb(175, 144, 103);
+$holiday-id-colour-5: yellow;
+$holiday-id-colour-6: rgb(69, 200, 252);
+$holiday-id-colour-7: rgb(100, 56, 15);
+$holiday-id-colour-8: orange;
+$holiday-id-colour-9: rgb(0, 10, 153);
+$holiday-id-colour-10: rgb(202, 87, 255);
+
 @mixin easeOut {
     transition: all 0.5s ease-out, background 0.5s ease-out;
 

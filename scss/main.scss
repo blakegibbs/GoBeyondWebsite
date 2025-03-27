@@ -246,3 +246,51 @@ main {
         z-index: 1;
     }
 }
+
+.navigation-aid-square {
+    height: 10px;
+    width: 10px;
+    display: inline-block;
+    margin-right: 10px;
+    background-color: red;
+
+    &.id-1 {
+        background-color: $holiday-id-colour-1;
+    }
+
+    &.id-2 {
+        background-color: $holiday-id-colour-2;
+    }
+
+    &.id-3 {
+        background-color: $holiday-id-colour-3;
+    }
+
+    &.id-4 {
+        background-color: $holiday-id-colour-4;
+    }
+
+    &.id-5 {
+        background-color: $holiday-id-colour-5;
+    }
+
+    &.id-6 {
+        background-color: $holiday-id-colour-6;
+    }
+
+    &.id-7 {
+        background-color: $holiday-id-colour-7;
+    }
+
+    &.id-8 {
+        background-color: $holiday-id-colour-8;
+    }
+
+    &.id-9 {
+        background-color: $holiday-id-colour-9;
+    }
+
+    &.id-10 {
+        background-color: $holiday-id-colour-10;
+    }
+}
