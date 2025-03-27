@@ -1,4 +1,3 @@
-
 function TopBarRespond() {
     toggleMenu();
 }
@@ -8,31 +7,66 @@ const closeMenuBtn = document.querySelector('.close-menu-btn');
 const menu = document.querySelector('.side-menu');
 const menuNav = document.querySelector('.menu');
 const navItems = document.querySelectorAll('.nav-item');
+const contact = document.querySelector('.contact');
 
-//set initial state of menu
 let showMenu = false;
 
-//menuBtn.addEventListener('click', toggleMenu);
-
+//toggle the menu visibility
 function toggleMenu() {
     if (!showMenu) {
-        //closeMenuBtn.classList.add('show');
         menu.classList.add('show');
         menuNav.classList.add('show');
         navItems.forEach(item => item.classList.add('show'));
-
-        //set menu state
+        contact.classList.add('show');
         showMenu = true;
     } else {
-        //menuBtn.classList.remove('close');
         menu.classList.remove('show');
         menuNav.classList.remove('show');
         navItems.forEach(item => item.classList.remove('show'));
-
-        //set menu state
+        contact.classList.remove('show');
         showMenu = false;
     }
 }
+
+//event listener for screen resizing
+window.addEventListener('resize', function () {
+    if (window.innerWidth > 1400) {
+        // Remove 'show' class when screen size exceeds 1400px
+        menu.classList.remove('show');
+        menuNav.classList.remove('show');
+        navItems.forEach(item => item.classList.remove('show'));
+        contact.classList.remove('show');
+        showMenu = false; // Update menu state
+    }
+});
+
+//for the close button
+
+if (showMenu) {
+    closeMenuBtn.addEventListener('click', TopBarRespond);
+
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+var dropdownButtons = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdownButtons.length; i++) {
+    var dropdownContainer = dropdownButtons[i].nextElementSibling; //get the dropdown container
+
+    dropdownButtons[i].addEventListener("click", function (e) {
+        e.stopPropagation();
+
+        //find the dropdown container and toggle the show class
+        var dropdownContainer = this.nextElementSibling;
+        dropdownContainer.classList.toggle("show");
+    });
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 document.addEventListener('DOMContentLoaded', function () {
     const slider = document.querySelector('.slider');
@@ -97,3 +131,5 @@ document.addEventListener('DOMContentLoaded', function () {
     updateActiveNav(); //set the first active navigation link
     startAutoScroll(); //start auto scroll when the page loads
 });
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
