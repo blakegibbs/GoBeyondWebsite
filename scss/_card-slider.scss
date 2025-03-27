@@ -5,10 +5,9 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    /* Align at the start to prevent any gaps */
     min-height: 30vh;
     max-width: 95rem;
-    overflow-x: hidden;
+    //overflow-x: scroll;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
 
@@ -21,9 +20,8 @@
 .card-list {
     display: flex;
     flex-wrap: nowrap;
-    gap: 20px;
+    gap: 0px;
     margin: 0;
-    /* Remove margin to ensure no extra space */
 }
 
 .card-list .card-item {
@@ -32,19 +30,56 @@
     width: 500px;
     padding: 35px;
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-direction: column;
     flex-shrink: 0;
     scroll-snap-align: start;
-    /* Make each item snap into place */
+}
+
+.card-list .card-item.id-1 .holiday-image {
+    border-color: $holiday-id-colour-1;
+}
+
+.card-list .card-item.id-2 .holiday-image {
+    border-color: $holiday-id-colour-2;
+}
+
+.card-list .card-item.id-3 .holiday-image {
+    border-color: $holiday-id-colour-3;
+}
+
+.card-list .card-item.id-4 .holiday-image {
+    border-color: $holiday-id-colour-4;
+}
+
+.card-list .card-item.id-5 .holiday-image {
+    border-color: $holiday-id-colour-5;
+}
+
+.card-list .card-item.id-6 .holiday-image {
+    border-color: $holiday-id-colour-6;
+}
+
+.card-list .card-item.id-7 .holiday-image {
+    border-color: $holiday-id-colour-7;
+}
+
+.card-list .card-item.id-8 .holiday-image {
+    border-color: $holiday-id-colour-8;
+}
+
+.card-list .card-item.id-9 .holiday-image {
+    border-color: $holiday-id-colour-9;
+}
+
+.card-list .card-item.id-10 .holiday-image {
+    border-color: $holiday-id-colour-10;
 }
 
 .card-list .card-item .holiday-image {
     width: 450px;
     height: 300px;
-    border: 6px solid black;
-    border-radius: 5px;
+    border: 6px solid;
 }
 
 .card-list .card-item .holiday-name {
