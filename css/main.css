@@ -462,7 +462,8 @@
     color: white; }
 
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  overflow-x: hidden; }
 
 .header-content {
   display: flex;
