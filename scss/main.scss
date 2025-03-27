@@ -2,9 +2,11 @@
 @import 'side-menu'; //for the pop-out menu
 @import 'menu-bar'; //for the top menu bar
 @import 'image-slider'; //for the image slider on the homepage
+@import 'card-slider'; //for the holiday info card slider
 
 * {
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .header-content {

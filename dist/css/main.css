@@ -373,8 +373,72 @@
       height: 0.75rem;
       transform: translate(0, -12.5%); }
 
+.card-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* Align at the start to prevent any gaps */
+  min-height: 30vh;
+  max-width: 95rem;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; }
+  .card-wrapper p {
+    color: #b99273;
+    font-weight: bold; }
+
+.card-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  margin: 0;
+  /* Remove margin to ensure no extra space */ }
+
+.card-list .card-item {
+  color: black;
+  background-color: white;
+  width: 500px;
+  padding: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  /* Make each item snap into place */ }
+
+.card-list .card-item .holiday-image {
+  width: 450px;
+  height: 300px;
+  border: 6px solid black;
+  border-radius: 5px; }
+
+.card-list .card-item .holiday-name {
+  font-size: 1.15rem;
+  color: black;
+  font-weight: bold;
+  margin: 14px 0px 0px; }
+
+.card-list .card-item .details-button {
+  font-size: 1.25rem;
+  padding: 10px 35px;
+  color: white;
+  font-weight: bold;
+  background-color: #b99273;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: 0.2s ease; }
+  .card-list .card-item .details-button:hover {
+    background-color: black;
+    color: white; }
+
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  overflow-x: hidden; }
 
 .header-content {
   display: flex;
