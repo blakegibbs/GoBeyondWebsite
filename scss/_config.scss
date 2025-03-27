@@ -137,8 +137,8 @@ $holiday-id-colour-10: rgb(202, 87, 255);
 @media screen and (max-width: 1300px) {
 
     .content-left {
-        margin-left: 3vw !important;
-        //margin-right: 12vw !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
         width: 100% !important;
         display: block;
         padding: 0;

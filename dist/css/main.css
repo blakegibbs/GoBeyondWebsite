@@ -60,7 +60,8 @@
 
 @media screen and (max-width: 1300px) {
   .content-left {
-    margin-left: 3vw !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
     width: 100% !important;
     display: block;
     padding: 0; }
