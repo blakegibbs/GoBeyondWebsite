@@ -96,7 +96,7 @@ $holiday-id-colour-10: rgb(202, 87, 255);
     .info-box-grid {
         grid-template-columns: 50px 1fr !important;
         //Keep 50px for icons
-        grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 1fr 0.5fr !important;
+        grid-template-rows: 0.8fr 0.8fr 0.8fr 0.8fr 1fr 0.7fr !important;
         //6 rows layout
         grid-auto-flow: row !important;
     }
