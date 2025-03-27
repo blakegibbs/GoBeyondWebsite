@@ -83,11 +83,10 @@ $sidebar-image4: url(../img/home-page-group.jpg);
 
     .info-box-grid {
         grid-template-columns: 50px 1fr !important;
-        /* Keep 50px for icons */
+        //Keep 50px for icons
         grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 1fr 0.5fr !important;
-        /* 6 rows layout */
+        //6 rows layout
         grid-auto-flow: row !important;
-        /* Ensure the items flow properly */
     }
 }
 

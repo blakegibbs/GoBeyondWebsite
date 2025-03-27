@@ -45,6 +45,12 @@
         transition: width 0.2s ease-in;
     }
 
+    @media (max-width: 900px) {
+        &.show {
+            width: 100vw;
+        }
+    }
+
     &-nav {
         z-index: 101;
         display: flex;
