@@ -94,6 +94,7 @@
   z-index: 100;
   border-radius: 1px;
   border: 0.5px solid lightgray;
+  overflow: hidden;
   border-top: hidden;
   border-bottom: hidden;
   border-right: hidden;
@@ -109,7 +110,8 @@
   .side-menu.show {
     visibility: visible;
     width: 50vw;
-    transition: width 0.2s ease-in; }
+    transition: width 0.2s ease-in;
+    overflow-y: auto; }
   @media (max-width: 900px) {
     .side-menu.show {
       width: 100vw; } }
