@@ -1,6 +1,6 @@
 @import 'config'; //stores all variables and mixins
-@import 'menu'; //for the pop out menu
-@import 'menuBar'; //for the top menu bar
+@import 'side-menu'; //for the pop out menu
+@import 'menu-bar'; //for the top menu bar
 @import 'image-slider'; //for the image slider on the homepage
 
 * {
@@ -136,7 +136,7 @@ main {
     }
 
     .footer {
-        position: fixed;
+        position: static;
         left: 0;
         bottom: 0;
         width: 100%;

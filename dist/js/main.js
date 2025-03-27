@@ -8,6 +8,7 @@ const closeMenuBtn = document.querySelector('.close-menu-btn');
 const menu = document.querySelector('.side-menu');
 const menuNav = document.querySelector('.menu');
 const navItems = document.querySelectorAll('.nav-item');
+const contact = document.querySelector('.contact');
 
 //set initial state of menu
 let showMenu = false;
@@ -20,6 +21,7 @@ function toggleMenu() {
         menu.classList.add('show');
         menuNav.classList.add('show');
         navItems.forEach(item => item.classList.add('show'));
+        contact.classList.add('show');
 
         //set menu state
         showMenu = true;
@@ -28,6 +30,7 @@ function toggleMenu() {
         menu.classList.remove('show');
         menuNav.classList.remove('show');
         navItems.forEach(item => item.classList.remove('show'));
+        contact.classList.remove('show');
 
         //set menu state
         showMenu = false;
