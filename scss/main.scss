@@ -444,3 +444,22 @@ main {
         background-color: $holiday-id-colour-10;
     }
 }
+
+.pre-footer {
+    padding-top: 6vh;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 6vh;
+
+    .column {
+        flex: 1;
+        padding: 0 15px;
+
+        p {
+            font-size: 14px;
+        }
+    }
+}
