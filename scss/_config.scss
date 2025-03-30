@@ -132,6 +132,23 @@ $holiday-id-colour-10: rgb(202, 87, 255);
     .contact {
         font-size: 11px;
     }
+
+    .holiday-card {
+        width: 250px !important;
+    }
+
+    .holiday-name {
+        font-size: 16px !important;
+
+    }
+
+    .holiday-price {
+        font-size: 14px !important;
+    }
+
+    .holiday-date {
+        font-size: 14px !important;
+    }
 }
 
 @media screen and (max-width: 1300px) {
