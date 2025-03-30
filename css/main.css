@@ -56,7 +56,15 @@
   .interactive-button {
     font-size: 0.7rem; }
   .contact {
-    font-size: 11px; } }
+    font-size: 11px; }
+  .holiday-card {
+    width: 250px !important; }
+  .holiday-name {
+    font-size: 16px !important; }
+  .holiday-price {
+    font-size: 14px !important; }
+  .holiday-date {
+    font-size: 14px !important; } }
 
 @media screen and (max-width: 1300px) {
   .content-left {
@@ -373,93 +381,203 @@
       height: 0.75rem;
       transform: translate(0, -12.5%); }
 
-.card-wrapper {
+.holiday-slider {
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0;
+  width: 70vw; }
+
+.holiday-container {
+  padding: 0 10vw;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 30vh;
-  max-width: 95rem;
-  overflow-x: hidden;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch; }
-  .card-wrapper p {
-    color: #b99273;
-    font-weight: bold; }
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  overflow: hidden; }
 
-.card-list {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 0px;
-  margin: 0; }
+.holiday-container::-webkit-scrollbar {
+  display: none; }
 
-.card-list .card-item {
-  color: black;
-  background-color: white;
-  width: 500px;
-  padding: 35px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  flex-shrink: 0;
-  scroll-snap-align: start; }
+.holiday-card {
+  flex: 0 0 auto;
+  width: 450px;
+  height: 500px;
+  margin-right: 40px; }
 
-.card-list .card-item.id-1 .holiday-image {
-  border-color: lightgray; }
+.holiday-image {
+  position: relative;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  overflow: hidden; }
 
-.card-list .card-item.id-2 .holiday-image {
+.holiday-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 6px solid;
   border-color: red; }
 
-.card-list .card-item.id-3 .holiday-image {
+.card-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  width: 90%;
+  text-transform: capitalize;
+  border: none;
+  outline: none;
+  color: white;
+  background: #b99273;
+  border-radius: 5px;
+  transition: 0.5s;
+  cursor: pointer;
+  opacity: 0; }
+
+.holiday-card:hover .card-btn {
+  opacity: 1; }
+
+.card-btn:hover {
+  background: black; }
+
+.holiday-info {
+  width: 100%;
+  height: 100%;
+  padding-top: 10px; }
+
+.holiday-name {
+  font-weight: bold;
+  text-align: center; }
+
+.holiday-price {
+  font-weight: 600;
+  font-size: 20px;
+  color: #b99273; }
+
+.holiday-date {
+  font-weight: 600;
+  font-size: 20px;
+  color: #b99273; }
+
+.colour-nav-block {
+  background-color: red;
+  height: 35px;
+  width: 100%; }
+
+.pre-btn,
+.nxt-btn {
+  border: none;
+  width: 10vw;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, white 100%);
+  cursor: pointer;
+  z-index: 9; }
+  .pre-btn img,
+  .nxt-btn img {
+    opacity: 0.2;
+    width: 50px; }
+    .pre-btn img:hover,
+    .nxt-btn img:hover {
+      opacity: 1; }
+
+.pre-btn {
+  left: 0;
+  transform: rotate(180deg); }
+
+.nxt-btn {
+  right: 0; }
+
+.collection-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px; }
+
+.collection {
+  position: relative; }
+  .collection img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; }
+  .collection p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 50px; }
+
+.collection:nth-child(3) {
+  grid-column: span 2;
+  margin-bottom: 10px; }
+
+.holiday-thumb.id-1 {
+  border-color: lightgray; }
+
+.colour-nav-block.id-1 {
+  background-color: lightgray; }
+
+.holiday-thumb.id-2 {
+  border-color: red; }
+
+.colour-nav-block.id-2 {
+  background-color: red; }
+
+.holiday-thumb.id-3 {
   border-color: #5fff5f; }
 
-.card-list .card-item.id-4 .holiday-image {
+.colour-nav-block.id-3 {
+  background-color: #5fff5f; }
+
+.holiday-thumb.id-4 {
   border-color: #af9067; }
 
-.card-list .card-item.id-5 .holiday-image {
+.colour-nav-block.id-4 {
+  background-color: #af9067; }
+
+.holiday-thumb.id-5 {
   border-color: yellow; }
 
-.card-list .card-item.id-6 .holiday-image {
+.colour-nav-block.id-5 {
+  background-color: yellow; }
+
+.holiday-thumb.id-6 {
   border-color: #45c8fc; }
 
-.card-list .card-item.id-7 .holiday-image {
+.colour-nav-block.id-6 {
+  background-color: #45c8fc; }
+
+.holiday-thumb.id-7 {
   border-color: #64380f; }
 
-.card-list .card-item.id-8 .holiday-image {
+.colour-nav-block.id-7 {
+  background-color: #64380f; }
+
+.holiday-thumb.id-8 {
   border-color: orange; }
 
-.card-list .card-item.id-9 .holiday-image {
+.colour-nav-block.id-8 {
+  background-color: orange; }
+
+.holiday-thumb.id-9 {
   border-color: #000a99; }
 
-.card-list .card-item.id-10 .holiday-image {
+.colour-nav-block.id-9 {
+  background-color: #000a99; }
+
+.holiday-thumb.id-10 {
   border-color: #ca57ff; }
 
-.card-list .card-item .holiday-image {
-  width: 450px;
-  height: 300px;
-  border: 6px solid; }
-
-.card-list .card-item .holiday-name {
-  font-size: 1.15rem;
-  color: black;
-  font-weight: bold;
-  margin: 14px 0px 0px; }
-
-.card-list .card-item .details-button {
-  font-size: 1.25rem;
-  padding: 10px 35px;
-  color: white;
-  font-weight: bold;
-  background-color: #b99273;
-  border: none;
-  cursor: pointer;
-  margin-bottom: 10px;
-  transition: 0.2s ease; }
-  .card-list .card-item .details-button:hover {
-    background-color: black;
-    color: white; }
+.colour-nav-block.id-10 {
+  background-color: #ca57ff; }
 
 * {
   box-sizing: border-box; }
