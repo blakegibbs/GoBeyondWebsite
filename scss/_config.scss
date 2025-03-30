@@ -203,7 +203,31 @@ $showcase-image5: url(../img/WhyChooseUsGrid/grid-img5.jpg);
             width: 35px !important;
         }
     }
+
+    .footer {
+        p {
+            font-size: 10px;
+        }
+    }
 }
+
+@media screen and (max-height:900px) {
+    .get-in-touch {
+        min-height: 500px;
+    }
+
+    .slider {
+        aspect-ratio: 16 / 9 !important;
+    }
+
+    .slider-wrapper {
+        position: relative;
+        width: 100% !important;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+}
+
 
 @media screen and (max-width: 1300px) {
 
