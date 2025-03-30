@@ -66,7 +66,16 @@
   .holiday-price {
     font-size: 14px !important; }
   .holiday-date {
-    font-size: 14px !important; } }
+    font-size: 14px !important; }
+  .grid-container {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    max-width: 600px; }
+  .grid-element {
+    aspect-ratio: auto;
+    height: auto;
+    min-height: 100px !important;
+    padding: 25px 20px; } }
 
 @media screen and (max-width: 1300px) {
   .content-left {
@@ -389,7 +398,8 @@
   padding: 20px;
   margin-left: auto;
   margin-right: auto;
-  width: 70vw; }
+  width: 70vw;
+  padding-bottom: 100px; }
 
 .holiday-container {
   padding: 0 10vw;
@@ -730,6 +740,65 @@ main {
   display: block;
   width: 100%;
   margin-top: 20px; }
+
+.why-choose-us {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: black;
+  box-sizing: border-box;
+  overflow-x: hidden; }
+  .why-choose-us .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: stretch;
+    width: 90%;
+    max-width: 900px; }
+    .why-choose-us .grid-container .grid-element {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      padding: 15px;
+      box-sizing: border-box;
+      background-color: white;
+      transition: all 0.2s ease-in-out;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat; }
+      .why-choose-us .grid-container .grid-element h2 {
+        margin-top: 15px;
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: black;
+        line-height: 1.2; }
+      .why-choose-us .grid-container .grid-element p {
+        font-size: 0.9rem;
+        font-weight: 300;
+        color: black;
+        text-align: center;
+        margin-left: 0;
+        margin-bottom: 0;
+        line-height: 1.4;
+        max-width: 90%; }
+      .why-choose-us .grid-container .grid-element.id-1 {
+        background-image: url(../img/WhyChooseUsGrid/grid-img1.jpg); }
+      .why-choose-us .grid-container .grid-element.id-2 {
+        background-image: url(../img/WhyChooseUsGrid/grid-img2.jpg); }
+      .why-choose-us .grid-container .grid-element.id-3 {
+        background-image: url(../img/WhyChooseUsGrid/grid-img3.jpg); }
+      .why-choose-us .grid-container .grid-element.id-4 {
+        background-image: url(../img/WhyChooseUsGrid/grid-img4.jpg); }
+      .why-choose-us .grid-container .grid-element.id-5 {
+        background-image: url(../img/WhyChooseUsGrid/grid-img5.jpg); }
 
 .new-line {
   display: block; }

@@ -21,6 +21,13 @@ $holiday-id-colour-8: orange;
 $holiday-id-colour-9: rgb(0, 10, 153);
 $holiday-id-colour-10: rgb(202, 87, 255);
 
+//images for why choose us grid
+$showcase-image1: url(../img/WhyChooseUsGrid/grid-img1.jpg);
+$showcase-image2: url(../img/WhyChooseUsGrid/grid-img2.jpg);
+$showcase-image3: url(../img/WhyChooseUsGrid/grid-img3.jpg);
+$showcase-image4: url(../img/WhyChooseUsGrid/grid-img4.jpg);
+$showcase-image5: url(../img/WhyChooseUsGrid/grid-img5.jpg);
+
 @mixin easeOut {
     transition: all 0.5s ease-out, background 0.5s ease-out;
 
@@ -152,6 +159,19 @@ $holiday-id-colour-10: rgb(202, 87, 255);
 
     .holiday-date {
         font-size: 14px !important;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr !important;
+        width: 100% !important;
+        max-width: 600px;
+    }
+
+    .grid-element {
+        aspect-ratio: auto;
+        height: auto;
+        min-height: 100px !important;
+        padding: 25px 20px;
     }
 }
 
