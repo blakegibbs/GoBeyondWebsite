@@ -194,3 +194,9 @@ $showcase-image5: url(../img/WhyChooseUsGrid/grid-img5.jpg);
         width: 100%;
     }
 }
+
+@media screen and (min-width: 1300px) {
+    .get-in-touch {
+        padding-left: 30vw !important;
+    }
+}
