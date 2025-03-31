@@ -1,104 +1,132 @@
-//background of the top nav bar
+$breakpoint-desktop: 1400px; //breakpoint where the menu icon appears
+
 .topnav {
     background-color: $primary-colour;
     overflow: visible;
-    /* Changed from 'hidden' */
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    align-items: center; //certically center logo nav container and icon
     height: 99px;
-    align-content: space-evenly;
-    grid-template-columns: auto auto auto;
-    align-items: center;
-    padding: 0.1rem;
+    padding: 0 1rem; //add some horizontal padding for breathing room
     position: relative;
 
-
     .logo-image {
-        position: relative;
-        left: 0;
-        z-index: 0;
-    }
+        flex-shrink: 0;
+        margin-right: 2rem;
+        height: 70%;
+        display: flex;
+        align-items: center;
 
-    //style the links within
-    .nav-link {
-        float: left;
-        color: black;
-        text-align: center;
-        padding-left: 2vw;
-        padding-right: 2vw;
-        text-decoration: none;
-        font-size: 1rem;
-        border-style: groove;
-        border-top: hidden;
-        border-bottom: hidden;
-        border-left: hidden;
-        border-width: 1px;
-        padding-top: 2rem;
-        height: 99px;
-        border-color: rgba(0, 0, 0, 0.1);
-
-        &:hover {
-            color: $secondary-colour;
+        img {
+            display: block;
+            max-height: 100%;
+            width: auto;
         }
     }
 
-    //highlight the current page
-    .active-nav-link {
-        float: left;
-        text-align: center;
-        padding-left: 2vw;
-        padding-right: 2vw;
-        text-decoration: none;
-        font-size: 1rem;
-        border-style: groove;
-        border-top: hidden;
-        border-bottom: hidden;
-        border-width: 1px;
-        padding-top: 2rem;
-        height: 99px;
-        background-color: white;
-        color: $secondary-colour;
-        border-color: rgba(0, 0, 0, 0.1);
+    .nav-links-container {
+        display: flex; //visible by default (on screens wider than breakpoint)
+        flex-grow: 1;
+        height: 100%;
+        justify-content: space-around;
+
+        //style direct children: Normal links AND dropdown containers
+        >a,
+        >.dropdown {
+            flex-grow: 1;
+            flex-basis: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1rem;
+            color: black;
+            border-left: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 0 10px;
+            box-sizing: border-box;
+            position: relative;
+
+            &:first-child {
+                border-left: none;
+            }
+
+            &:hover {
+                color: $secondary-colour;
+            }
+
+            i.fa {
+                margin-right: 0.5em;
+            }
+        }
+
+        //style the trigger link *inside* a dropdown to look like other links
+        >.dropdown>a.nav-link {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: inherit; //inherit color from parent (.dropdown)
+            text-decoration: none;
+        }
+
+        //active link style
+        >a.active-nav-link {
+            background-color: white;
+            color: $secondary-colour;
+        }
+
     }
 
     .icon {
-        display: none;
-        float: left;
+        display: none !important; //hidden by default (on screens wider than breakpoint)
         color: black;
-        text-align: center;
-        padding-left: 2vw;
-        padding-right: 2vw;
+        padding: 0 1rem;
         text-decoration: none;
-        font-size: 1rem;
-        padding-top: 2rem;
-        height: 99px;
-        border-color: rgba(0, 0, 0, 0.1);
+        font-size: 1.5rem;
+        cursor: pointer;
+        height: 100%;
+        display: flex; //keep flex for alignment when shown
+        align-items: center;
 
         &:hover {
             color: $secondary-colour;
         }
     }
+
+    //responsiveness
+    @media screen and (max-width: $breakpoint-desktop) {
+        .nav-links-container {
+            display: none; //hide the main links container
+        }
+
+        .icon {
+            display: flex !important; //show the menu icon
+        }
+
+        //make the topbar position fixed on screen!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    }
+
 }
 
+//dropdown styling
 .dropdown {
-    position: relative;
-    display: inline-block;
-    order: 2;
 
-    >.dropdown-content {
+    .dropdown-content {
         display: none;
         position: absolute;
         background-color: white;
         min-width: 170px;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 10;
-        top: 97%;
-        left: 0;
+        top: 100%; //position below parent
+        left: 0; //align left with parent
+        border-top: 1px solid #eee;
 
         a {
             color: black;
-            padding: 12px 10px;
+            padding: 12px 16px;
             text-decoration: none;
             display: block;
             white-space: nowrap;
@@ -107,29 +135,43 @@
                 background-color: $secondary-colour;
                 color: white;
             }
+
+            .navigation-aid-square {
+                display: inline-block;
+                width: 15px;
+                height: 15px;
+                margin-right: 10px;
+                vertical-align: middle;
+            }
+
+            .new-line {
+                display: block;
+                font-size: 0.8rem;
+                margin-left: 25px;
+                color: #555;
+            }
         }
 
+        //nested dropdown 
         .dropdown {
-            >.dropdown-content {
-                top: 0;
-                left: 100%;
-                margin-top: -1px;
-                margin-left: 1px;
+            position: relative; //for its own content positioning
+
+            .dropdown-content {
+                top: -1px;
+                left: 100%; //position to the right
+                margin-top: 0;
                 display: none;
+                border-top: none;
             }
 
             &:hover>.dropdown-content {
                 display: block;
             }
         }
+
     }
 
     &:hover>.dropdown-content {
         display: block;
     }
-}
-
-.nav-link {
-    display: inline-block;
-    padding: 16px;
 }

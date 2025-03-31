@@ -44,14 +44,6 @@ $showcase-image5: url(../img/WhyChooseUsGrid/grid-img5.jpg);
 
 //hide all top bar icons and show the widgit for the side menu
 @media screen and (max-width: 1400px) {
-    .topnav a {
-        display: none;
-    }
-
-    .topnav {
-        position: relative;
-        display: flex;
-    }
 
     .topnav a.icon {
         position: absolute;
@@ -62,10 +54,16 @@ $showcase-image5: url(../img/WhyChooseUsGrid/grid-img5.jpg);
         cursor: pointer;
     }
 
-    /*
-    The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. 
-    This class makes the topnav look good on small screens (display the links vertically instead of horizontally)
-    */
+    .content-right {
+
+        .logo-image {
+            display: none;
+        }
+    }
+
+
+    //The responsive class is added to the topnav with js when the user clicks on the icon. 
+
 
     .topnav.responsive {
         position: relative;
@@ -98,6 +96,18 @@ $showcase-image5: url(../img/WhyChooseUsGrid/grid-img5.jpg);
 @media screen and (max-width: 900px) {
     body>header {
         display: none;
+    }
+
+
+    .topnav a.icon {
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
+        z-index: 99;
+        display: block !important;
+        cursor: pointer;
+
+        padding: 30px !important;
     }
 
     .info-box-grid {
@@ -142,6 +152,8 @@ $showcase-image5: url(../img/WhyChooseUsGrid/grid-img5.jpg);
 
     .holiday-slider {
         width: 94vw !important;
+        padding-bottom: 0px !important;
+        height: 400px !important;
     }
 
     .holiday-card {
