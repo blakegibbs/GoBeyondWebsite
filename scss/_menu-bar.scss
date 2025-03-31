@@ -121,7 +121,7 @@ $breakpoint-desktop: 1400px; //breakpoint where the menu icon appears
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 10;
         top: 100%; //position below parent
-        left: 0; //align left with parent
+        //left: 0; //align left with parent
         border-top: 1px solid #eee;
 
         a {
