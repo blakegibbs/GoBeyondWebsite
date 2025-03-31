@@ -87,9 +87,17 @@
             transform: translate3d(0, 0, 0); // Slide in from the right
         }
 
+
         &.current>a {
             color: $secondary-colour;
         }
+
+        &.current>button {
+            color: $secondary-colour;
+        }
+
+
+
 
         &.first {
             margin-top: 5vh;

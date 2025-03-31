@@ -27,6 +27,23 @@
     flex-shrink: 0;
 }
 
+.profile-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10;
+    max-height: 800px;
+    width: auto;
+    max-width: 100%;
+}
+
+iframe {
+    display: block;
+    margin: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 body {
     background: $primary-colour;
     color: black;
@@ -68,13 +85,24 @@ body {
 }
 
 .image-bar {
-    background-size: cover;
-    background-position: center;
-    height: 57vh;
-    width: 100%;
-    margin: 0;
+    img {
+        flex: 1 0 100%;
+        scroll-snap-align: start;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    display: flex;
+    aspect-ratio: 7/2; //1400 x 400px images
+    max-height: 80vh;
+    overflow-x: auto; //hides the overflow images
+    scroll-snap-type: x mandatory; //controls the slider at the bottom of the panel
+    scroll-behavior: smooth;
     position: relative;
-    z-index: 1;
+    width: 100vw; //force the slider to use this much space and dynamically resize.
+    margin: 0 auto; //will centre automatically
+    overflow: hidden;
 }
 
 h1,
@@ -105,6 +133,10 @@ header {
     padding: 0.5rem 0;
     z-index: 2;
     width: 100%;
+}
+
+h3 {
+    font-weight: bold;
 }
 
 .text-secondary {
