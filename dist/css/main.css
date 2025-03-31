@@ -30,6 +30,7 @@
     position: fixed !important;
     top: 0 !important;
     right: 0 !important;
+    margin-top: 0px !important;
     z-index: 99;
     display: block !important;
     cursor: pointer;
@@ -322,6 +323,7 @@
       text-align: center;
       text-decoration: none;
       font-size: 1rem;
+      font-weight: bold;
       color: black;
       border-left: 1px solid rgba(0, 0, 0, 0.1);
       padding: 0 10px;
@@ -350,7 +352,8 @@
   .topnav .icon {
     display: none !important;
     color: black;
-    padding: 0 1rem;
+    margin-top: 30px;
+    padding: 0 3rem;
     text-decoration: none;
     font-size: 1.5rem;
     cursor: pointer;

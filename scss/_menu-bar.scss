@@ -41,6 +41,7 @@ $breakpoint-desktop: 1400px; //breakpoint where the menu icon appears
             text-align: center;
             text-decoration: none;
             font-size: 1rem;
+            font-weight: bold;
             color: black;
             border-left: 1px solid rgba(0, 0, 0, 0.1);
             padding: 0 10px;
@@ -82,11 +83,11 @@ $breakpoint-desktop: 1400px; //breakpoint where the menu icon appears
     .icon {
         display: none !important; //hidden by default (on screens wider than breakpoint)
         color: black;
-        padding: 0 1rem;
+        margin-top: 30px;
+        padding: 0 3rem;
         text-decoration: none;
         font-size: 1.5rem;
         cursor: pointer;
-        //height: 100%;
         display: flex; //keep flex for alignment when shown
         align-items: center;
 
