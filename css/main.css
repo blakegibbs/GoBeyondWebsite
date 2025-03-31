@@ -658,6 +658,18 @@
 * {
   box-sizing: border-box; }
 
+.text-list {
+  list-style-position: outside;
+  padding-left: 0;
+  margin-left: 0;
+  line-height: 2rem; }
+
+.text-list li {
+  padding-left: 1.2em; }
+
+.bold {
+  font-weight: bold; }
+
 .header-content {
   display: flex;
   align-items: center;
