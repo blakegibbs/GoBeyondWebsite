@@ -1,0 +1,139 @@
+$breakpoint-tablet: 992px;
+$breakpoint-mobile: 768px;
+
+
+.blog-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+
+    .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+        font-weight: normal;
+
+        .tales-from {
+            color: #bda550;
+        }
+
+        .beyond {
+            color: #6b4f2c;
+            font-weight: bold;
+        }
+    }
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    .blog-card {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        .card-image-wrapper {
+            border: 2px solid $secondary-colour;
+            line-height: 0;
+
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .card-content {
+            background-color: rgb(248, 248, 248);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; //content push button down
+
+            .card-title {
+                font-size: 1.3rem;
+                font-weight: bold;
+                color: black;
+                margin: 0 0 5px 0;
+                line-height: 1.3;
+            }
+
+            .card-subtitle {
+                //for "A new blog from Go Beyond"
+                font-size: 0.9rem;
+                color: gray;
+                margin: 0 0 15px 0;
+                font-style: italic;
+            }
+
+            .card-main-text {
+                margin-bottom: 20px;
+
+                h3 {
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    color: black;
+                    margin: 0 0 10px 0;
+                    line-height: 1.3;
+                }
+
+                p {
+                    font-size: 1rem;
+                    color: black;
+                    line-height: 1.6;
+                    margin: 0;
+                }
+            }
+
+            .read-more-btn {
+                display: inline-block;
+                background-color: rgb(196, 69, 69);
+                color: white;
+                padding: 10px 25px;
+                border-radius: 5px;
+                text-decoration: none;
+                font-weight: bold;
+                text-align: center;
+                margin-top: auto; //pushes the button to the bottom
+                align-self: flex-start; //align button to the left
+                transition: background-color 0.3s ease;
+
+                &:hover,
+                &:focus {
+                    background-color: darken(rgb(196, 69, 69), 30%); //darken on hover
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $breakpoint-tablet) {
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px * 0.8;
+    }
+
+    .blog-section .section-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: $breakpoint-mobile) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .blog-section .section-title {
+        font-size: 1.8rem;
+    }
+
+    .blog-grid .blog-card .card-content {
+        padding: 15px;
+    }
+}
