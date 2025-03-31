@@ -733,6 +733,52 @@
   left: 0;
   right: 0; }
 
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  padding: 40px 0;
+  margin: 0;
+  background-color: white;
+  overflow-x: hidden; }
+  .testimonials .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 90%;
+    max-width: 1100px; }
+  .testimonials .grid-element {
+    width: 100%;
+    background-color: white; }
+    .testimonials .grid-element .wpb_video_widget {
+      width: 100%; }
+    .testimonials .grid-element .wpb_video_wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      width: 100%; }
+      .testimonials .grid-element .wpb_video_wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0; }
+  @media (max-width: 992px) {
+    .testimonials .grid-container {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 700px;
+      gap: 15px; } }
+  @media (max-width: 576px) {
+    .testimonials .grid-container {
+      grid-template-columns: 1fr;
+      width: 95%;
+      max-width: 400px;
+      gap: 20px; } }
+
 * {
   box-sizing: border-box; }
 
