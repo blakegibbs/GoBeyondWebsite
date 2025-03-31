@@ -782,6 +782,9 @@
 * {
   box-sizing: border-box; }
 
+html {
+  scroll-behavior: smooth; }
+
 .text-list {
   list-style-position: outside;
   padding-left: 0;
