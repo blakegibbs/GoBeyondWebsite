@@ -733,6 +733,9 @@
   left: 0;
   right: 0; }
 
+.testomonials {
+  display: flex; }
+
 * {
   box-sizing: border-box; }
 
