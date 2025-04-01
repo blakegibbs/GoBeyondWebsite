@@ -137,3 +137,13 @@ $breakpoint-mobile: 768px;
         padding: 15px;
     }
 }
+
+.blog-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10;
+    max-height: 350px;
+    width: auto;
+    max-width: 100%;
+}
