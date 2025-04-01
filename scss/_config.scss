@@ -246,6 +246,8 @@ $showcase-image5: url(../img/WhyChooseUsGrid/grid-img5.jpg);
     .quick-info-box {
         width: 90% !important;
         max-width: none !important;
+        border: none !important;
+        background-color: white !important;
     }
 }
 
@@ -278,7 +280,8 @@ $showcase-image5: url(../img/WhyChooseUsGrid/grid-img5.jpg);
     }
 
     .content-right {
-        margin-right: 3vw !important;
+        margin-right: auto !important;
+        margin-left: auto !important;
     }
 
     .main-wrap {

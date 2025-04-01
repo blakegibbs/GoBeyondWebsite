@@ -110,7 +110,9 @@
     font-size: 10px; }
   .quick-info-box {
     width: 90% !important;
-    max-width: none !important; } }
+    max-width: none !important;
+    border: none !important;
+    background-color: white !important; } }
 
 @media screen and (max-height: 900px) {
   .get-in-touch {
@@ -131,7 +133,8 @@
     display: block;
     padding: 0; }
   .content-right {
-    margin-right: 3vw !important; }
+    margin-right: auto !important;
+    margin-left: auto !important; }
   .main-wrap {
     display: block;
     width: 100%; } }
@@ -1331,6 +1334,10 @@ main {
       background-color: #b99273;
       color: white;
       background-color: black; }
+
+.content {
+  display: block;
+  width: 100%; }
 
 .central-content {
   display: block;
