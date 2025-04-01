@@ -6,6 +6,8 @@
 @import 'user-slider'; //for the about us user slider
 @import 'testimonials'; //for the testimonial grid
 @import 'blogs'; //for the blog grid and unique styling
+@import 'holidays'; //for the holiday pages
+@import 'contact-form'; //for the contact form style
 
 * {
     box-sizing: border-box;
@@ -255,6 +257,16 @@ main {
     display: block;
     width: 100%;
     margin-top: 20px;
+}
+
+.holiday-page-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10;
+    max-height: auto;
+    //max-height: 350px;
+    width: 100%;
 }
 
 .why-choose-us {

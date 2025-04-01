@@ -1,0 +1,148 @@
+$primary-text-color: rgb(43, 43, 43);
+$error-color: rgb(163, 11, 11);
+$border-color: rgb(163, 163, 163);
+$border-color-focus: darken($border-color, 25%);
+$placeholder-color: rgba($primary-text-color, 0.7);
+$button-bg: $secondary-colour;
+$button-hover-bg: black;
+$button-text-color: white;
+$container-bg: white;
+$header-color: black;
+
+$input-padding-vertical: 15px;
+$input-padding-horizontal: 18px;
+$border-radius: 6px;
+$gap: 20px;
+$form-max-width: 650px;
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 30vh;
+    background: $container-bg;
+    padding: $gap;
+    box-sizing: border-box;
+}
+
+.contact {
+    width: 100%;
+    max-width: $form-max-width;
+
+    .contact-header {
+        font-size: 36px;
+        color: $header-color;
+        text-align: center;
+        margin-bottom: $gap * 1.5;
+        font-weight: 600;
+    }
+}
+
+.input-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gap;
+    margin-bottom: $gap;
+
+    .field {
+        flex: 1 1 calc(50% - #{$gap / 2});
+        min-width: 200px;
+        margin-bottom: 0;
+    }
+}
+
+.field {
+    margin-bottom: $gap;
+    text-align: left;
+
+    &.textarea-field {
+        width: 100%;
+
+        .error-txt {
+            margin-top: -10px;
+        }
+    }
+}
+
+.item {
+    font-family: "Roboto", Helvetica, Arial, Verdana, sans-serif;
+    width: 100%;
+    padding: $input-padding-vertical $input-padding-horizontal;
+    background: transparent;
+    border: 2px solid $border-color;
+    outline: none;
+    border-radius: $border-radius;
+    font-size: 16px;
+    color: $primary-text-color;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+        border-color: $border-color-focus;
+    }
+
+    &::placeholder {
+        color: $placeholder-color;
+    }
+
+    &.textarea-item {
+        resize: vertical;
+        min-height: 120px;
+    }
+}
+
+.error-txt {
+    display: none;
+    font-size: 14px;
+    color: $error-color;
+    margin-top: 5px;
+    padding-left: 2px;
+}
+
+.field.invalid {
+    .item {
+        border-color: $error-color;
+    }
+
+    .error-txt {
+        display: block;
+    }
+}
+
+.button-container {
+    text-align: center;
+    margin-top: $gap * 1.5;
+}
+
+button[type="submit"] {
+    padding: 12px 32px;
+    background: $button-bg;
+    border: none;
+    color: $button-text-color;
+    outline: none;
+    border-radius: $border-radius;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover,
+    &:focus {
+        background-color: $button-hover-bg;
+    }
+}
+
+.form-status {
+    margin-top: 15px;
+    font-size: 0.95em;
+    text-align: center;
+    min-height: 1.2em;
+    font-weight: 500;
+}
+
+@media (max-width: 600px) {
+
+    .contact-header {
+        font-size: 28px;
+    }
+}

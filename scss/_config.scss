@@ -242,6 +242,11 @@ $showcase-image5: url(../img/WhyChooseUsGrid/grid-img5.jpg);
             font-size: 10px;
         }
     }
+
+    .quick-info-box {
+        width: 90% !important;
+        max-width: none !important;
+    }
 }
 
 @media screen and (max-height:900px) {
