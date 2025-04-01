@@ -528,3 +528,137 @@ memberSliders.forEach(slider => {
         }, 250);
     });
 });
+
+/////////////////////////////////////////////////////////////////////////////////
+
+document.addEventListener('DOMContentLoaded', () => {
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+    const lightboxOverlay = document.getElementById('lightboxOverlay');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    //function to open the lightbox
+    const openLightbox = (imageUrl) => {
+        lightboxImage.src = imageUrl;
+        lightboxOverlay.classList.add('active');
+    };
+
+    //function to close the lightbox
+    const closeLightbox = () => {
+        lightboxOverlay.classList.remove('active');
+        lightboxImage.src = ""; //clear the src to stop loading if closing quickly
+    };
+
+    //add click listener to each gallery image
+    galleryItems.forEach(item => {
+        item.addEventListener('click', (event) => {
+            //use the data attribute for the full-size image URL
+            const fullsizeUrl = event.target.dataset.fullsizeSrc;
+            if (fullsizeUrl) {
+                openLightbox(fullsizeUrl);
+            } else {
+                console.error('Data attribute data-fullsize-src not found on image:', item);
+            }
+        });
+
+        //add keypress listener for Enter/Space for accessibility
+        item.parentElement.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault(); //prevent default space scroll
+                const fullsizeUrl = item.dataset.fullsizeSrc;
+                if (fullsizeUrl) {
+                    openLightbox(fullsizeUrl);
+                }
+            }
+        });
+        //make parent focusable if img itself isn't naturally
+        item.parentElement.setAttribute('tabindex', '0');
+
+    });
+
+    //add click listener to the close button
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    //add click listener to the overlay (to close when clicking outside the image)
+    lightboxOverlay.addEventListener('click', (event) => {
+        //check if the click was directly on the overlay, not the container/image/button
+        if (event.target === lightboxOverlay) {
+            closeLightbox();
+        }
+    });
+
+    //add keyboard listener for the Escape key
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && lightboxOverlay.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
+});
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault(); // IMPORTANT: Prevent default form submission
+
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+
+            //show sending status
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            formStatus.textContent = ''; //clear previous status
+            formStatus.style.color = 'inherit';
+
+            const formData = new FormData(contactForm);
+            const formProps = Object.fromEntries(formData); //convert FormData to plain object
+
+            try {
+                const response = await fetch(contactForm.action, { //use form's action URL
+                    method: 'POST',
+                    body: JSON.stringify(formProps), //send data as JSON
+                    headers: {
+                        'Accept': 'application/json', // IMPORTANT: Tell Formspree to reply with JSON
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    //formspree successful response (usually {ok: true})
+                    formStatus.textContent = "Thank you! Your message has been sent successfully.";
+                    formStatus.style.color = 'green';
+                    contactForm.reset(); //clear the form fields
+                } else {
+                    //attempt to get error details from Formspree response
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            //display validation errors from Formspree if any
+                            formStatus.textContent = data["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            formStatus.textContent = 'Oops! There was a problem submitting your form.';
+                        }
+                        formStatus.style.color = 'red';
+                    }).catch(error => {
+                        //handle cases where response is not valid JSON
+                        formStatus.textContent = 'Oops! There was a problem submitting your form. Server error.';
+                        formStatus.style.color = 'red';
+                        console.error("Non-JSON error response:", error);
+                    });
+                }
+            } catch (error) {
+                //network error or other fetch issue
+                console.error('Submission error:', error);
+                formStatus.textContent = 'Network error. Please check your connection and try again.';
+                formStatus.style.color = 'red';
+            } finally {
+                //restore button state regardless of success/error
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+            }
+        });
+    }
+});
