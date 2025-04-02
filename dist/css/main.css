@@ -109,7 +109,7 @@
   .footer p {
     font-size: 10px; }
   .quick-info-box {
-    text-align: center;
+    text-align: left;
     width: 90% !important;
     max-width: none !important;
     border: none !important;
