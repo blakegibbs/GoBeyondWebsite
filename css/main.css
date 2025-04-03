@@ -1138,6 +1138,54 @@ button[type="submit"] {
   .contact-header {
     font-size: 28px; } }
 
+.faq-section {
+  margin-top: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px; }
+
+.faq-item {
+  font-family: "Roboto", Helvetica, Arial, Verdana, sans-serif;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden; }
+  .faq-item .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    position: relative; }
+    .faq-item .faq-question::after {
+      content: '\25BE';
+      font-size: 1.2rem;
+      transition: transform 0.3s ease; }
+    .faq-item .faq-question:hover {
+      background-color: #eee; }
+    .faq-item .faq-question.active {
+      background-color: #b99273;
+      color: white; }
+      .faq-item .faq-question.active::after {
+        content: '\25B4'; }
+  .faq-item .faq-answer {
+    padding: 15px;
+    background-color: white;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    border-top: 1px solid #eee;
+    display: none; }
+  .faq-item:has(.faq-question.active) .faq-answer {
+    display: block; }
+
 * {
   box-sizing: border-box; }
 
