@@ -1152,6 +1152,7 @@ button[type="submit"] {
   border-radius: 4px;
   overflow: hidden; }
   .faq-item .faq-question {
+    color: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
