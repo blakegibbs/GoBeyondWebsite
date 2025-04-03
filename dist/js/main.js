@@ -47,6 +47,33 @@ if (showMenu) {
 
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+let showAnswer = false;
+
+const faqButtons = document.querySelectorAll('.faq-question');
+
+function toggleAnswer(event) {
+    const faqButton = event.target; //get the specific clicked button
+    const answer = faqButton.nextElementSibling;
+
+    //toggle the 'active' class on the clicked faqButton
+    faqButton.classList.toggle('active');
+
+    //toggle the visibility of the answer
+    if (faqButton.classList.contains('active')) {
+        answer.style.display = 'block'; //show the answer
+    } else {
+        answer.style.display = 'none'; //hide the answer
+    }
+}
+
+//add event listeners to each FAQ question button
+faqButtons.forEach(faqButton => {
+    faqButton.addEventListener('click', toggleAnswer);
+});
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
