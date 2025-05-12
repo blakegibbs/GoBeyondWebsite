@@ -142,9 +142,9 @@ document.addEventListener('DOMContentLoaded', function () {
             event.preventDefault(); //prevent the default link behavior
             currentIndex = index; //set currentIndex to the clicked link index
             const targetSlide = slides[currentIndex];
-            const targetPosition = targetSlide.offsetLeft; // Get the left offset of the target slide
+            const targetPosition = targetSlide.offsetLeft; //get the left offset of the target slide
 
-            // Set the scroll position of the slider container to target the clicked image
+            //set the scroll position of the slider container to target the clicked image
             slider.scrollTo({
                 left: targetPosition,
                 behavior: 'smooth'
@@ -168,27 +168,25 @@ holidaySliders.forEach(slider => {
     const nxtBtn = slider.querySelector('.nxt-btn');
     const preBtn = slider.querySelector('.pre-btn');
 
-    // Check if elements exist
     if (!container || !nxtBtn || !preBtn) {
         console.warn("Slider missing container or buttons:", slider);
         return;
     }
 
-    let cardWidth = 0; // Calculated in setupSlider
-    let numOriginals = 0; // Calculated in setupSlider
-    let isScrolling = false; // Flag to prevent rapid clicks during animation
+    let cardWidth = 0; //calculated in setupSlider
+    let numOriginals = 0; //calculated in setupSlider
+    let isScrolling = false; //flag to prevent rapid clicks during animation
     let clonesPrepended = 0;
     let clonesAppended = 0;
 
     const setupSlider = () => {
         isScrolling = false;
-        container.style.scrollBehavior = 'auto'; // Disable smooth scroll during setup
+        container.style.scrollBehavior = 'auto'; //disable smooth scroll during setup
 
-        // --- 1. Cloning ---
-        // Clear previous clones and state
+        //clear previous clones and state
         const clones = container.querySelectorAll('.clone');
         clones.forEach(clone => clone.remove());
-        const originalCards = Array.from(container.children).filter(el => !el.classList.contains('clone')); // Ensure we only get originals
+        const originalCards = Array.from(container.children).filter(el => !el.classList.contains('clone')); //ensure only originals
         numOriginals = originalCards.length;
 
         if (numOriginals === 0) {
@@ -198,18 +196,18 @@ holidaySliders.forEach(slider => {
             return;
         }
 
-        // Determine number of clones needed (enough to fill viewport + buffer)
-        // This is more complex if card widths vary, assume fixed for now
+        //get number of clones needed (enough to fill viewport + buffer)
+        //this is more complex if card widths vary, assume fixed for now
         const firstCardForWidth = originalCards[0];
         const cardStyle = window.getComputedStyle(firstCardForWidth);
         const marginLeft = parseFloat(cardStyle.marginLeft);
         const marginRight = parseFloat(cardStyle.marginRight);
-        // Use getBoundingClientRect for potentially more accuracy with transforms/box-sizing
+        //use getBoundingClientRect for potentially more accuracy with transforms/box-sizing
         cardWidth = firstCardForWidth.getBoundingClientRect().width + marginLeft + marginRight;
 
         if (cardWidth <= 0) {
             console.error("Card width is zero or negative. Cannot setup slider:", slider);
-            // Try offsetWidth as fallback
+            //try offsetWidth as fallback
             cardWidth = firstCardForWidth.offsetWidth + marginLeft + marginRight;
             if (cardWidth <= 0) {
                 console.error("Fallback card width also zero. Aborting.");
@@ -221,12 +219,12 @@ holidaySliders.forEach(slider => {
 
 
         const containerWidth = container.clientWidth;
-        // Calculate how many clones are needed to safely cover the wrap-around
-        // At least enough to fill the visible area. Add 1-2 for buffer.
-        clonesNeeded = Math.ceil(containerWidth / cardWidth) + 2; // Need this many on each side
-        clonesNeeded = Math.min(clonesNeeded, numOriginals); // Don't need more clones than originals
+        //calculate how many clones are needed to safely cover the wrap-around
+        //at least enough to fill the visible area. Add 1-2 for buffer.
+        clonesNeeded = Math.ceil(containerWidth / cardWidth) + 2; //need this many on each side
+        clonesNeeded = Math.min(clonesNeeded, numOriginals); //dont need more clones than originals
 
-        // Clone from ends
+        //clone from ends
         const cardsToPrepend = originalCards.slice(-clonesNeeded).map(card => {
             const clone = card.cloneNode(true);
             clone.classList.add('clone', 'clone-prepended');
@@ -242,26 +240,24 @@ holidaySliders.forEach(slider => {
         container.append(...cardsToAppend);
 
         clonesPrepended = cardsToPrepend.length;
-        clonesAppended = cardsToAppend.length; // Should be same as clonesNeeded
+        clonesAppended = cardsToAppend.length; //should be same as clonesNeeded
 
-        // --- 2. Initial Position ---
-        // Scroll instantly to the start of the *original* content area
+        //scroll instantly to the start of the *original* content area
         const initialScroll = cardWidth * clonesPrepended;
         console.log(`Initial Setup: numOriginals=${numOriginals}, cardWidth=${cardWidth.toFixed(2)}, clonesPrepended=${clonesPrepended}, initialScroll=${initialScroll.toFixed(2)}`);
         container.scrollTo({
             left: initialScroll,
-            behavior: 'auto' // INSTANT
+            behavior: 'auto' //INSTANT
         });
 
-        // --- 3. Check Scrollability ---
         const totalWidth = container.scrollWidth;
-        const isScrollable = totalWidth > container.clientWidth + 5; // Add tolerance
+        const isScrollable = totalWidth > container.clientWidth + 5; //add tolerance
         console.log(`Total width: ${totalWidth.toFixed(2)}, Client width: ${container.clientWidth.toFixed(2)}, Is Scrollable: ${isScrollable}`);
         if (nxtBtn) nxtBtn.style.display = isScrollable ? 'block' : 'none';
         if (preBtn) preBtn.style.display = isScrollable ? 'block' : 'none';
 
-        // Re-enable smooth scroll for user interaction AFTER setup jump
-        // Use a tiny timeout to ensure the instant scroll finishes processing
+        //re-enable smooth scroll for user interaction AFTER setup jump
+        //use a tiny timeout to ensure the instant scroll finishes processing
         setTimeout(() => {
             container.style.scrollBehavior = 'smooth';
         }, 0);
@@ -270,57 +266,57 @@ holidaySliders.forEach(slider => {
 
 
     const handleScrollEnd = () => {
-        if (!isScrolling) return; // Only handle jumps after programmatic scroll
+        if (!isScrolling) return; //only handle jumps after programmatic scroll
 
-        // Define the boundaries (scrollLeft values)
+        //define the boundaries (scrollLeft values)
         const firstOriginalStart = cardWidth * clonesPrepended;
-        // Start of the appended clones (position AFTER the last original card)
+        //start of the appended clones (position AFTER the last original card)
         const firstAppendedStart = cardWidth * (clonesPrepended + numOriginals);
-        // Use a tolerance around the boundaries
-        const tolerance = cardWidth * 0.5; // Allow landing halfway into the boundary card
+        //use a tolerance around the boundaries
+        const tolerance = cardWidth * 0.5; //allow landing halfway into the boundary card
 
         console.log(`ScrollEnd: scrollLeft=${container.scrollLeft.toFixed(2)}`);
         console.log(`Boundaries: firstOriginalStart=${firstOriginalStart.toFixed(2)}, firstAppendedStart=${firstAppendedStart.toFixed(2)}`);
 
         let jumped = false;
-        // Check if we landed in the appended clones area
+        //check if we landed in the appended clones area
         if (container.scrollLeft >= firstAppendedStart - tolerance) {
             const newScrollLeft = container.scrollLeft - (numOriginals * cardWidth);
             console.log(`Wrap Forward Detected: Jumping from ${container.scrollLeft.toFixed(2)} to ${newScrollLeft.toFixed(2)}`);
-            container.style.scrollBehavior = 'auto'; // Disable smooth for the jump
+            container.style.scrollBehavior = 'auto'; //disable smooth for the jump
             container.scrollTo({ left: newScrollLeft, behavior: 'auto' });
             jumped = true;
         }
-        // Check if we landed in the prepended clones area
+        //check if we landed in the prepended clones area
         else if (container.scrollLeft < firstOriginalStart - tolerance) {
             const newScrollLeft = container.scrollLeft + (numOriginals * cardWidth);
             console.log(`Wrap Backward Detected: Jumping from ${container.scrollLeft.toFixed(2)} to ${newScrollLeft.toFixed(2)}`);
-            container.style.scrollBehavior = 'auto'; // Disable smooth for the jump
+            container.style.scrollBehavior = 'auto'; //disable smooth for the jump
             container.scrollTo({ left: newScrollLeft, behavior: 'auto' });
             jumped = true;
         }
 
-        // Re-enable smooth scrolling if we jumped, using a timeout
+        //re-enable smooth scrolling if we jumped, using a timeout
         if (jumped) {
             setTimeout(() => {
                 container.style.scrollBehavior = 'smooth';
-                isScrolling = false; // Allow next click AFTER jump settles
-            }, 0); // Small delay needed for browser to process the instant jump
+                isScrolling = false; //allow next click AFTER jump settles
+            }, 0); //small delay needed for browser to process the instant jump
         } else {
-            isScrolling = false; // Allow next click if no jump occurred
+            isScrolling = false; //allow next click if no jump occurred
         }
     }
 
-    // Use 'scrollend' if available, otherwise fallback needed (more complex)
+    //use 'scrollend' if available, otherwise fallback needed (more complex)
     if ('onscrollend' in window) {
         container.addEventListener('scrollend', handleScrollEnd);
     } else {
         console.warn("Browser does not support 'scrollend'. Infinite loop jump might be noticeable or slightly delayed (fallback needed).");
-        // Basic timeout fallback (less reliable than scrollend)
+        //basic timeout fallback (less reliable than scrollend)
         let scrollTimeout;
         container.addEventListener('scroll', () => {
             clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(handleScrollEnd, 150); // Adjust delay as needed
+            scrollTimeout = setTimeout(handleScrollEnd, 150); //adjust delay as needed
         }, { passive: true });
     }
 
@@ -329,10 +325,10 @@ holidaySliders.forEach(slider => {
         if (isScrolling || cardWidth <= 0) return;
         isScrolling = true;
         console.log("Next Clicked");
-        // Scroll by one card width
+        //scroll by one card width
         container.scrollBy({
             left: cardWidth,
-            // behavior: 'smooth' // Smooth is now set via CSS/style property
+            //behavior: 'smooth' // Smooth is now set via CSS/style property
         });
     });
 
@@ -340,32 +336,31 @@ holidaySliders.forEach(slider => {
         if (isScrolling || cardWidth <= 0) return;
         isScrolling = true;
         console.log("Prev Clicked");
-        // Scroll by one card width
+        //scroll by one card width
         container.scrollBy({
             left: -cardWidth,
-            // behavior: 'smooth' // Smooth is now set via CSS/style property
+            //behavior: 'smooth' // Smooth is now set via CSS/style property
         });
     });
 
-    // --- Initial Setup & Resize ---
-    // Use requestAnimationFrame or setTimeout to ensure layout is ready
+    //use requestAnimationFrame or setTimeout to ensure layout is ready
     const init = () => {
-        // Needs robust cardWidth calculation, maybe wait for images?
-        // Simplest is timeout
-        setTimeout(setupSlider, 100); // Increased delay slightly
+        //needs robust cardWidth calculation, maybe wait for images?
+        //simplest is timeout
+        setTimeout(setupSlider, 100); //increased delay slightly
     }
     init();
 
 
-    // Re-run setup on resize (debounced)
+    //re-run setup on resize (debounced)
     let resizeTimeout;
     window.addEventListener('resize', () => {
-        // Temporarily disable smooth scroll during resize adjustments
-        // container.style.scrollBehavior = 'auto';
+        //temporarily disable smooth scroll during resize adjustments
+        //container.style.scrollBehavior = 'auto';
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(() => {
             console.log("Resizing slider...");
-            setupSlider(); // This recalculates widths, clones, and resets position
+            setupSlider(); //this recalculates widths, clones, and resets position
         }, 250);
     });
 });
@@ -379,27 +374,25 @@ memberSliders.forEach(slider => {
     const nxtBtn = slider.querySelector('.nxt-btn');
     const preBtn = slider.querySelector('.pre-btn');
 
-    // Check if elements exist
     if (!container || !nxtBtn || !preBtn) {
         console.warn("Slider missing container or buttons:", slider);
         return;
     }
 
-    let cardWidth = 0; // Calculated in setupSlider
-    let numOriginals = 0; // Calculated in setupSlider
-    let isScrolling = false; // Flag to prevent rapid clicks during animation
+    let cardWidth = 0;
+    let numOriginals = 0;
+    let isScrolling = false;
     let clonesPrepended = 0;
     let clonesAppended = 0;
 
     const setupSlider = () => {
         isScrolling = false;
-        container.style.scrollBehavior = 'auto'; // Disable smooth scroll during setup
+        container.style.scrollBehavior = 'auto';
 
-        // --- 1. Cloning ---
-        // Clear previous clones and state
+
         const clones = container.querySelectorAll('.clone');
         clones.forEach(clone => clone.remove());
-        const originalCards = Array.from(container.children).filter(el => !el.classList.contains('clone')); // Ensure we only get originals
+        const originalCards = Array.from(container.children).filter(el => !el.classList.contains('clone'));
         numOriginals = originalCards.length;
 
         if (numOriginals === 0) {
@@ -409,17 +402,14 @@ memberSliders.forEach(slider => {
             return;
         }
 
-        // Determine number of clones needed (enough to fill viewport + buffer)
         const firstCardForWidth = originalCards[0];
         const cardStyle = window.getComputedStyle(firstCardForWidth);
         const marginLeft = parseFloat(cardStyle.marginLeft);
         const marginRight = parseFloat(cardStyle.marginRight);
-        // Use getBoundingClientRect for potentially more accuracy with transforms/box-sizing
         cardWidth = firstCardForWidth.getBoundingClientRect().width + marginLeft + marginRight;
 
         if (cardWidth <= 0) {
             console.error("Card width is zero or negative. Cannot setup slider:", slider);
-            // Try offsetWidth as fallback
             cardWidth = firstCardForWidth.offsetWidth + marginLeft + marginRight;
             if (cardWidth <= 0) {
                 console.error("Fallback card width also zero. Aborting.");
@@ -430,12 +420,9 @@ memberSliders.forEach(slider => {
         }
 
         const containerWidth = container.clientWidth;
-        // Calculate how many clones are needed to safely cover the wrap-around
-        // At least enough to fill the visible area. Add 1-2 for buffer.
-        let clonesNeeded = Math.ceil(containerWidth / cardWidth) + 2; // Need this many on each side
-        clonesNeeded = Math.min(clonesNeeded, numOriginals); // Don't need more clones than originals
+        let clonesNeeded = Math.ceil(containerWidth / cardWidth) + 2;
+        clonesNeeded = Math.min(clonesNeeded, numOriginals);
 
-        // Clone from ends
         const cardsToPrepend = originalCards.slice(-clonesNeeded).map(card => {
             const clone = card.cloneNode(true);
             clone.classList.add('clone', 'clone-prepended');
@@ -451,37 +438,32 @@ memberSliders.forEach(slider => {
         container.append(...cardsToAppend);
 
         clonesPrepended = cardsToPrepend.length;
-        clonesAppended = cardsToAppend.length; // Should be same as clonesNeeded
+        clonesAppended = cardsToAppend.length;
 
-        // --- 2. Initial Position ---
-        // Scroll instantly to the start of the *original* content area
         const initialScroll = cardWidth * clonesPrepended;
         console.log(`Initial Setup: numOriginals=${numOriginals}, cardWidth=${cardWidth.toFixed(2)}, clonesPrepended=${clonesPrepended}, initialScroll=${initialScroll.toFixed(2)}`);
         container.scrollTo({
             left: initialScroll,
-            behavior: 'auto' // INSTANT
+            behavior: 'auto'
         });
 
-        // --- 3. Check Scrollability ---
         const totalWidth = container.scrollWidth;
-        const isScrollable = totalWidth > container.clientWidth + 5; // Add tolerance
+        const isScrollable = totalWidth > container.clientWidth + 5;
         console.log(`Total width: ${totalWidth.toFixed(2)}, Client width: ${container.clientWidth.toFixed(2)}, Is Scrollable: ${isScrollable}`);
         if (nxtBtn) nxtBtn.style.display = isScrollable ? 'block' : 'none';
         if (preBtn) preBtn.style.display = isScrollable ? 'block' : 'none';
 
-        // Re-enable smooth scroll for user interaction AFTER setup jump
         setTimeout(() => {
             container.style.scrollBehavior = 'smooth';
         }, 0);
     };
 
     const handleScrollEnd = () => {
-        if (!isScrolling) return; // Only handle jumps after programmatic scroll
+        if (!isScrolling) return;
 
-        // Define the boundaries (scrollLeft values)
         const firstOriginalStart = cardWidth * clonesPrepended;
         const firstAppendedStart = cardWidth * (clonesPrepended + numOriginals);
-        const tolerance = cardWidth * 0.5; // Allow landing halfway into the boundary card
+        const tolerance = cardWidth * 0.5;
 
         console.log(`ScrollEnd: scrollLeft=${container.scrollLeft.toFixed(2)}`);
         console.log(`Boundaries: firstOriginalStart=${firstOriginalStart.toFixed(2)}, firstAppendedStart=${firstAppendedStart.toFixed(2)}`);
@@ -540,7 +522,6 @@ memberSliders.forEach(slider => {
         });
     });
 
-    // Initial Setup & Resize
     const init = () => {
         setTimeout(setupSlider, 100);
     };
