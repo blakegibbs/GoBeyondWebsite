@@ -5,13 +5,15 @@
   "main": "index.js",
   "homepage": "https://blakegibbs.github.io/GoBeyondWebsite",
   "scripts": {
-    "sass": "node-sass -w scss/ -o dist/css/ --recursive",
+    "sass": "sass --watch scss:dist/css",
     "deploy": "gh-pages -d dist"
   },
   "author": "Blake Gibbs",
   "license": "MIT",
   "dependencies": {
-    "gh-pages": "^6.3.0",
-    "node-sass": "^9.0.0"
+    "gh-pages": "^6.3.0"
+  },
+  "devDependencies": {
+    "sass": "^1.89.0"
   }
 }
