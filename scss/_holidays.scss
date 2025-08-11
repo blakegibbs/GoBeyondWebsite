@@ -4,126 +4,133 @@ $close-button-color: #fff;
 $close-button-size: 1.8rem;
 
 .interactive-images {
-    display: flex;
-    flex-wrap: wrap;
-    gap: $gallery-gap;
-    padding: $gallery-gap;
-    max-width: 1200px;
-    margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gallery-gap;
+  padding: $gallery-gap;
+  max-width: 1200px;
+  margin: 20px auto;
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .gallery-item {
+    flex: 1 1 calc(33.333% - #{$gallery-gap * 2 / 3}); //flexible items, aim for 3 columns accounting for gap
+    min-width: 250px; //prevent items getting too small before wrapping
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
     img {
-        display: block;
-        max-width: 100%;
-        height: auto;
+      width: 100%;
+      height: 100%; //image fill the container height
+      object-fit: cover; //cover the area, cropping if necessary to maintain aspect ratio
+      transition: transform 0.3s ease; //smooth zoom on hover
+
+      &:hover {
+        transform: scale(1.05); //slight zoom effect on hover
+      }
     }
-
-    .gallery-item {
-        flex: 1 1 calc(33.333% - #{$gallery-gap * 2 / 3}); //flexible items, aim for 3 columns accounting for gap
-        min-width: 250px; //prevent items getting too small before wrapping
-        cursor: pointer;
-        overflow: hidden;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-
-        img {
-            width: 100%;
-            height: 100%; //image fill the container height
-            object-fit: cover; //cover the area, cropping if necessary to maintain aspect ratio
-            transition: transform 0.3s ease; //smooth zoom on hover
-
-            &:hover {
-                transform: scale(1.05); //slight zoom effect on hover
-            }
-        }
-    }
+  }
 }
 
+.sold-out-banner {
+  h3 {
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0;
+    background-color: red;
+  }
+}
 
 .lightbox-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: $lightbox-bg;
-    display: none; //hidden at the start
-    justify-content: center;
-    align-items: center;
-    padding: 20px; //padding so image doesnt touch edges
-    box-sizing: border-box;
-    z-index: 1000; //on top
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $lightbox-bg;
+  display: none; //hidden at the start
+  justify-content: center;
+  align-items: center;
+  padding: 20px; //padding so image doesnt touch edges
+  box-sizing: border-box;
+  z-index: 1000; //on top
 
-    &.active {
-        display: flex; //show when active
-    }
+  &.active {
+    display: flex; //show when active
+  }
 }
 
 .lightbox-container {
-    position: relative;
-    max-width: 90vw; //max width relative to viewport width
-    max-height: 90vh; //max height relative to viewport height
-    display: flex; //contain the image size properly
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  max-width: 90vw; //max width relative to viewport width
+  max-height: 90vh; //max height relative to viewport height
+  display: flex; //contain the image size properly
+  justify-content: center;
+  align-items: center;
 }
 
 .lightbox-image {
-    display: block;
-    max-width: 100%;
-    max-height: 100%; //constrained by container
-    object-fit: contain; //show entire image, letterbox if needed
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  display: block;
+  max-width: 100%;
+  max-height: 100%; //constrained by container
+  object-fit: contain; //show entire image, letterbox if needed
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .lightbox-close {
-    position: absolute;
-    top: -5px; //position outside the container slightly
-    right: -5px; //position outside the container slightly
-    background: none;
-    border: none;
-    color: $close-button-color;
-    font-size: $close-button-size;
-    cursor: pointer;
-    padding: 5px 10px; //clickable area
-    line-height: 1;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); //make icon stand out
-    z-index: 1010; //above the image
+  position: absolute;
+  top: -5px; //position outside the container slightly
+  right: -5px; //position outside the container slightly
+  background: none;
+  border: none;
+  color: $close-button-color;
+  font-size: $close-button-size;
+  cursor: pointer;
+  padding: 5px 10px; //clickable area
+  line-height: 1;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); //make icon stand out
+  z-index: 1010; //above the image
 
-    &:hover {
-        color: darken($close-button-color, 15%);
-    }
+  &:hover {
+    color: darken($close-button-color, 15%);
+  }
 }
 
 .quick-info-box {
-    padding: 10px;
-    margin-bottom: 30px;
-    background-color: lightgray;
-    border-radius: 10px;
-    border: 1px solid black;
-    max-width: 300px;
-    align-self: center;
-    justify-self: center;
+  padding: 10px;
+  margin-bottom: 30px;
+  background-color: lightgray;
+  border-radius: 10px;
+  border: 1px solid black;
+  max-width: 300px;
+  align-self: center;
+  justify-self: center;
 }
 
 @media (max-width: 768px) {
+  .interactive-images .gallery-item {
+    //go to 2 columns on medium screens
+    flex-basis: calc(50% - #{$gallery-gap / 2});
+  }
 
-    .interactive-images .gallery-item {
-        //go to 2 columns on medium screens
-        flex-basis: calc(50% - #{$gallery-gap / 2});
-    }
-
-    .lightbox-close {
-        top: 5px; //bring inside on smaller screens
-        right: 5px;
-        font-size: $close-button-size * 0.9; //slightly smaller
-        background-color: rgba(0, 0, 0, 0.3); //add bg for contrast
-        border-radius: 3px;
-    }
+  .lightbox-close {
+    top: 5px; //bring inside on smaller screens
+    right: 5px;
+    font-size: $close-button-size * 0.9; //slightly smaller
+    background-color: rgba(0, 0, 0, 0.3); //add bg for contrast
+    border-radius: 3px;
+  }
 }
 
 @media (max-width: 480px) {
-
-    .interactive-images .gallery-item {
-        //go to 1 column on small screens
-        flex-basis: 100%;
-    }
+  .interactive-images .gallery-item {
+    //go to 1 column on small screens
+    flex-basis: 100%;
+  }
 }

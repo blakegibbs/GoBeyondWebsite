@@ -1180,6 +1180,14 @@
   transform: scale(1.05);
 }
 
+.sold-out-banner h3 {
+  color: white;
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 0;
+  background-color: red;
+}
+
 .lightbox-overlay {
   position: fixed;
   top: 0;
