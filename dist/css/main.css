@@ -822,6 +822,30 @@
   background-color: rgb(202, 87, 255);
 }
 
+.holiday-thumb.id-10 {
+  border-color: rgb(2, 75, 24);
+}
+
+.colour-nav-block.id-11 {
+  background-color: rgb(2, 75, 24);
+}
+
+.holiday-thumb.id-12 {
+  border-color: rgb(85, 13, 180);
+}
+
+.colour-nav-block.id-12 {
+  background-color: rgb(85, 13, 180);
+}
+
+.holiday-thumb.id-13 {
+  border-color: rgb(34, 156, 0);
+}
+
+.colour-nav-block.id-13 {
+  background-color: rgb(34, 156, 0);
+}
+
 .member-slider {
   position: relative;
   overflow: hidden;
@@ -1903,6 +1927,15 @@ main .footer .phone {
 }
 .navigation-aid-square.id-10 {
   background-color: rgb(202, 87, 255);
+}
+.navigation-aid-square.id-11 {
+  background-color: rgb(2, 75, 24);
+}
+.navigation-aid-square.id-12 {
+  background-color: rgb(85, 13, 180);
+}
+.navigation-aid-square.id-13 {
+  background-color: rgb(34, 156, 0);
 }
 
 .pre-footer {

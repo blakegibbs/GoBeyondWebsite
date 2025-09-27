@@ -20,6 +20,9 @@ $holiday-id-colour-7: rgb(100, 56, 15);
 $holiday-id-colour-8: orange;
 $holiday-id-colour-9: rgb(0, 10, 153);
 $holiday-id-colour-10: rgb(202, 87, 255);
+$holiday-id-colour-11: rgb(2, 75, 24);
+$holiday-id-colour-12: rgb(85, 13, 180);
+$holiday-id-colour-13: rgb(34, 156, 0);
 
 //images for why choose us grid
 $showcase-image1: url(../img/WhyChooseUsGrid/grid-img1.jpg);
@@ -29,270 +32,256 @@ $showcase-image4: url(../img/WhyChooseUsGrid/grid-img4.jpg);
 $showcase-image5: url(../img/WhyChooseUsGrid/grid-img5.jpg);
 
 @mixin easeOut {
-    transition: all 0.5s ease-out, background 0.5s ease-out;
-
+  transition: all 0.5s ease-out, background 0.5s ease-out;
 }
 
 @mixin logoImage {
-    background: $logo-image;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    display: inline-block;
-    flex-shrink: 0;
+  background: $logo-image;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  flex-shrink: 0;
 }
 
 //hide all top bar icons and show the widgit for the side menu
 @media screen and (max-width: 1400px) {
+  .topnav a.icon {
+    position: absolute;
+    margin-left: auto;
+    right: 0;
+    top: 0;
+    display: block;
+    cursor: pointer;
+  }
 
-    .topnav a.icon {
-        position: absolute;
-        margin-left: auto;
-        right: 0;
-        top: 0;
-        display: block;
-        cursor: pointer;
+  .content-right {
+    .logo-image {
+      display: none;
     }
+  }
 
-    .content-right {
+  //The responsive class is added to the topnav with js when the user clicks on the icon.
 
-        .logo-image {
-            display: none;
-        }
-    }
+  .topnav.responsive {
+    position: relative;
+  }
 
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 
-    //The responsive class is added to the topnav with js when the user clicks on the icon. 
-
-
-    .topnav.responsive {
-        position: relative;
-    }
-
-    .topnav.responsive a.icon {
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
-
-    .topnav.responsive a {
-        float: none;
-        display: block;
-        text-align: left;
-    }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
 }
 
 //for large screens
 @media screen and (min-width: 1920px) {
-
-    //move the content to the centre
-    .content-left {
-        width: 30% !important;
-    }
+  //move the content to the centre
+  .content-left {
+    width: 30% !important;
+  }
 }
-
 
 // For smaller screens (2x6 grid) and no header
 @media screen and (max-width: 900px) {
-    body>header {
-        display: none;
-    }
+  body > header {
+    display: none;
+  }
 
+  .topnav a.icon {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    margin-top: 0px !important;
+    z-index: 99;
+    display: block !important;
+    cursor: pointer;
 
-    .topnav a.icon {
-        position: fixed !important;
-        top: 0 !important;
-        right: 0 !important;
-        margin-top: 0px !important;
-        z-index: 99;
-        display: block !important;
-        cursor: pointer;
+    padding: 30px !important;
+  }
 
-        padding: 30px !important;
-    }
-
-    .info-box-grid {
-        grid-template-columns: 50px 1fr !important;
-        //Keep 50px for icons
-        grid-template-rows: 0.8fr 0.8fr 0.8fr 0.8fr 1fr 0.7fr !important;
-        //6 rows layout
-        grid-auto-flow: row !important;
-    }
+  .info-box-grid {
+    grid-template-columns: 50px 1fr !important;
+    //Keep 50px for icons
+    grid-template-rows: 0.8fr 0.8fr 0.8fr 0.8fr 1fr 0.7fr !important;
+    //6 rows layout
+    grid-auto-flow: row !important;
+  }
 }
 
 // For smaller screens
 @media screen and (max-width: 1000px) {
+  /* Adjust layout to stack for smaller screens */
+  .main-wrap {
+    flex-direction: column;
+    /* Stack content vertically */
+    align-items: center;
+  }
 
-    /* Adjust layout to stack for smaller screens */
-    .main-wrap {
-        flex-direction: column;
-        /* Stack content vertically */
-        align-items: center;
+  .content-left {
+    padding-left: 100vw;
+    margin-right: 10px;
+    margin-left: 3vw !important;
+  }
+
+  .content-right {
+    width: 100vw !important;
+    margin-left: 0rem !important;
+    margin-right: 0;
+    margin-top: 20px;
+  }
+
+  .interactive-button {
+    font-size: 0.7rem;
+  }
+
+  .contact {
+    font-size: 11px;
+  }
+
+  .holiday-slider {
+    width: 94vw !important;
+    padding-bottom: 0px !important;
+    height: 400px !important;
+  }
+
+  .holiday-card {
+    width: 250px !important;
+  }
+
+  .holiday-name {
+    font-size: 16px !important;
+  }
+
+  .holiday-price {
+    font-size: 14px !important;
+  }
+
+  .holiday-date {
+    font-size: 14px !important;
+  }
+
+  .member-slider {
+    width: 94vw !important;
+    padding-bottom: 0px !important;
+    height: 450px !important;
+  }
+
+  .member-card {
+    width: 250px !important;
+  }
+
+  .member-name {
+    font-size: 16px !important;
+  }
+
+  .member-desc {
+    font-size: 14px !important;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    max-width: 600px;
+  }
+
+  .grid-element {
+    aspect-ratio: auto;
+    height: auto;
+    min-height: 100px !important;
+    padding: 25px 20px;
+  }
+
+  .pre-footer {
+    display: block !important;
+    width: 100% !important;
+    max-width: 600px;
+  }
+
+  .column {
+    min-height: 200px !important;
+    padding: 25px 20px !important;
+  }
+
+  .get-in-touch {
+    h1 {
+      font-size: 25px !important;
     }
 
-    .content-left {
-        padding-left: 100vw;
-        margin-right: 10px;
-        margin-left: 3vw !important;
+    h2 {
+      font-size: 18px !important;
     }
 
-    .content-right {
-        width: 100vw !important;
-        margin-left: 0rem !important;
-        margin-right: 0;
-        margin-top: 20px;
+    h3 {
+      font-size: 15px !important;
     }
 
-    .interactive-button {
-        font-size: 0.7rem;
+    .dot {
+      height: 35px !important;
+      width: 35px !important;
     }
+  }
 
-    .contact {
-        font-size: 11px;
+  .footer {
+    p {
+      font-size: 10px;
     }
+  }
 
-    .holiday-slider {
-        width: 94vw !important;
-        padding-bottom: 0px !important;
-        height: 400px !important;
-    }
-
-    .holiday-card {
-        width: 250px !important;
-    }
-
-    .holiday-name {
-        font-size: 16px !important;
-
-    }
-
-    .holiday-price {
-        font-size: 14px !important;
-    }
-
-    .holiday-date {
-        font-size: 14px !important;
-    }
-
-    .member-slider {
-        width: 94vw !important;
-        padding-bottom: 0px !important;
-        height: 450px !important;
-    }
-
-    .member-card {
-        width: 250px !important;
-    }
-
-    .member-name {
-        font-size: 16px !important;
-
-    }
-
-    .member-desc {
-        font-size: 14px !important;
-    }
-
-
-    .grid-container {
-        grid-template-columns: 1fr !important;
-        width: 100% !important;
-        max-width: 600px;
-    }
-
-    .grid-element {
-        aspect-ratio: auto;
-        height: auto;
-        min-height: 100px !important;
-        padding: 25px 20px;
-    }
-
-    .pre-footer {
-        display: block !important;
-        width: 100% !important;
-        max-width: 600px;
-    }
-
-    .column {
-        min-height: 200px !important;
-        padding: 25px 20px !important;
-    }
-
-    .get-in-touch {
-        h1 {
-            font-size: 25px !important;
-        }
-
-        h2 {
-            font-size: 18px !important;
-        }
-
-        h3 {
-            font-size: 15px !important;
-        }
-
-        .dot {
-            height: 35px !important;
-            width: 35px !important;
-        }
-    }
-
-    .footer {
-        p {
-            font-size: 10px;
-        }
-    }
-
-    .quick-info-box {
-        text-align: left;
-        width: 90% !important;
-        max-width: none !important;
-        border: none !important;
-        background-color: white !important;
-    }
+  .quick-info-box {
+    text-align: left;
+    width: 90% !important;
+    max-width: none !important;
+    border: none !important;
+    background-color: white !important;
+  }
 }
 
-@media screen and (max-height:900px) {
-    .get-in-touch {
-        min-height: 500px;
-    }
+@media screen and (max-height: 900px) {
+  .get-in-touch {
+    min-height: 500px;
+  }
 
-    .slider {
-        aspect-ratio: 17 / 6 !important;
-    }
+  .slider {
+    aspect-ratio: 17 / 6 !important;
+  }
 
-    .slider-wrapper {
-        position: relative;
-        width: 100% !important;
-        margin: 0 auto;
-        overflow: hidden;
-    }
+  .slider-wrapper {
+    position: relative;
+    width: 100% !important;
+    margin: 0 auto;
+    overflow: hidden;
+  }
 }
-
 
 @media screen and (max-width: 1300px) {
+  .content-left {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    width: 100% !important;
+    display: block;
+    padding: 0;
+  }
 
-    .content-left {
-        padding-left: 10px !important;
-        padding-right: 10px !important;
-        width: 100% !important;
-        display: block;
-        padding: 0;
-    }
+  .content-right {
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
 
-    .content-right {
-        margin-right: auto !important;
-        margin-left: auto !important;
-    }
-
-    .main-wrap {
-        display: block;
-        width: 100%;
-    }
+  .main-wrap {
+    display: block;
+    width: 100%;
+  }
 }
 
 @media screen and (min-width: 1300px) {
-    .get-in-touch {
-        padding-left: 30vw !important;
-    }
+  .get-in-touch {
+    padding-left: 30vw !important;
+  }
 }
