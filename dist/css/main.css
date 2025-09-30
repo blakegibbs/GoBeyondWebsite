@@ -34,6 +34,9 @@
   body > header {
     display: none;
   }
+  header {
+    display: none !important;
+  }
   .topnav a.icon {
     position: fixed !important;
     top: 0 !important;
@@ -599,7 +602,7 @@
 
 .holiday-card {
   flex: 0 0 auto;
-  width: 450px;
+  width: 350px;
   height: 500px;
   margin-right: 40px;
 }
@@ -822,7 +825,7 @@
   background-color: rgb(202, 87, 255);
 }
 
-.holiday-thumb.id-10 {
+.holiday-thumb.id-11 {
   border-color: rgb(2, 75, 24);
 }
 
@@ -1835,7 +1838,7 @@ main .footer .phone {
   background-repeat: no-repeat;
 }
 .gallery #image1 {
-  background-image: url(../img/2025-brochure-cover.jpg);
+  background-image: url(../img/2026-cover.jpg);
 }
 .gallery #image2 {
   background-image: url(../img/sunday-times-05Feb23.jpg);

@@ -4,7 +4,7 @@ $secondary-colour: #b99273;
 $accent-colour: yellow;
 $show-home-image: true;
 $logo-image: url(../img/logo.jpg);
-$sidebar-image1: url(../img/2025-brochure-cover.jpg);
+$sidebar-image1: url(../img/2026-cover.jpg);
 $sidebar-image2: url(../img/sunday-times-05Feb23.jpg);
 $sidebar-image3: url(../img/iceland-rainbow-walk.jpg);
 $sidebar-image4: url(../img/home-page-group.jpg);
@@ -92,6 +92,10 @@ $showcase-image5: url(../img/WhyChooseUsGrid/grid-img5.jpg);
 @media screen and (max-width: 900px) {
   body > header {
     display: none;
+  }
+
+  header {
+    display: none !important;
   }
 
   .topnav a.icon {
