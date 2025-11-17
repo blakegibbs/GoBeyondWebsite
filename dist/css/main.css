@@ -1841,13 +1841,13 @@ main .footer .phone {
   background-image: url(../img/2026-cover.jpg);
 }
 .gallery #image2 {
-  background-image: url(../img/sunday-times-05Feb23.jpg);
+  background-image: url("../img/blog/travel awards/group.jpg");
 }
 .gallery #image3 {
   background-image: url(../img/iceland-rainbow-walk.jpg);
 }
 .gallery #image4 {
-  background-image: url(../img/home-page-group.jpg);
+  background-image: url(../img/sunday-times-05Feb23.jpg);
 }
 .gallery .description {
   text-align: center;
