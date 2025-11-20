@@ -9,11 +9,36 @@
     <link rel="stylesheet" href="css/main.css">
     <title>Go Beyond Holidays - With you all the way</title>
     <link rel="icon" type="image/x-icon" href="/img/title-logo.jpg">
+
+    <!-- Added custom styles for the Facebook plugin -->
+    <style>
+        .facebook-wrapper {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin: 2rem 0;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+        }
+        /* Ensures the plugin takes full width available */
+        .fb-page, .fb-page span, .fb-page iframe {
+            width: 100% !important;
+        }
+    </style>
 </head>
 
 <body>
+    <!-- FB Root moved here and script updated to standard version -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v18.0"></script>
+
     <main>
-              <div id="header-placeholder"></div>
+        <div id="header-placeholder"></div>
 
         <section class="container">
             <div class="slider-wrapper">
@@ -71,7 +96,7 @@
                     of course, more opportunities to make new friends and to create those unique, precious holiday
                     memories which our returning guests love to share with us.
                 </p>
-                <a href="testimonials.html">Read holiday memories of our returning guests…</a>
+                <a href="testimonials.html">See holiday memories of our returning guests…</a>
                 <b>
                     <p>So, welcome. It’s time to holiday. It’s time to Go Beyond!</p>
                 </b>
@@ -152,16 +177,16 @@
                                 href="Go Beyond 2026 PDF brochure.pdf" download>Download the Go Beyond
                                 Holidays 2026 brochure</a></div>
                     </b>
-                    
+
                     <div class="image" id="image2" style="margin-bottom: 1rem;"></div>
-                                 <b>
+                    <b>
                         <div class="description" style="margin-bottom: 2rem;"><a
                                 href="go-beyond-welcomes-florence-to-the-team.html">Read the
                                 Latest Tales from Beyond Blog</a>
                         </div>
                     </b>
-                    <div class="image" id="image3" style="margin-bottom: 6rem;"></div>
-                    <div class="image" id="image4"></div>
+
+                       <div class="image" id="image4"></div>
                     <b>
                         <div class="description" style="margin-bottom: 1rem;"><a
                                 href="https://www.thetimes.com/article/d74fc27c-a2f8-11ed-9d5c-69bd3c5b98b3">Read The
@@ -169,6 +194,32 @@
                                 about Go Beyond Holidays</a>
                         </div>
                     </b>
+
+
+                      <div class="facebook-wrapper">
+                        <!-- Fallback (Visible if blocked) -->
+                        <div class="fb-fallback">
+                            <i class="fab fa-facebook"></i>
+                            <h3>Join us on Facebook!</h3>
+                            <p>See our latest holiday photos and updates.</p>
+                            <a href="https://www.facebook.com/gobeyondhols" target="_blank" class="fb-btn">
+                                View Page
+                            </a>
+                        </div>
+
+                        <!-- The Feed -->
+                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fgobeyondhols&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
+                                width="600" 
+                                height="600" 
+                                scrolling="no" 
+                                frameborder="0" 
+                                allowfullscreen="true" 
+                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                        </iframe>
+
+                    </div>
+
+                 
                     <a href="contact.html" style="text-decoration: none;">
                         <div class="interactive-button">Have any questions? Contact us!</div>
                     </a>
@@ -179,260 +230,196 @@
         <div class="central-content">
             <h1 style="text-align: center; font-weight: bold;">Take a look at these great holidays for 2026!</h2>
 
-                   <section class="holiday-slider">
-            <button class="pre-btn"><img src="img/arrow.png" alt="" /></button>
-            <button class="nxt-btn"><img src="img/arrow.png" alt="" /></button>
-            <div class="holiday-container">
-              <div class="holiday-card">
-                <div class="holiday-image">
-                  <img
-                    src="img/holidays/Spanish Stadium/stadium.jpg"
-                    class="holiday-thumb id-1"
-                    alt="Spanish Stadium Tours"
-                  />
-                  <a href="spanish-spadium-tours.html"
-                    ><button class="card-btn">View details</button></a
-                  >
-                </div>
-                <div class="holiday-info">
-                  <h2 class="holiday-name">Spanish Stadium Tours</h2>
-                  <p class="holiday-price">Price: £3790</p>
-                  <p class="holiday-date">8th - 15th March 2026</p>
-                  <div class="colour-nav-block id-1"></div>
-                </div>
-              </div>
+                <section class="holiday-slider">
+                    <button class="pre-btn"><img src="img/arrow.png" alt="" /></button>
+                    <button class="nxt-btn"><img src="img/arrow.png" alt="" /></button>
+                    <div class="holiday-container">
+                        <div class="holiday-card">
+                            <div class="holiday-image">
+                                <img src="img/holidays/Spanish Stadium/stadium.jpg" class="holiday-thumb id-1"
+                                    alt="Spanish Stadium Tours" />
+                                <a href="spanish-spadium-tours.html"><button class="card-btn">View details</button></a>
+                            </div>
+                            <div class="holiday-info">
+                                <h2 class="holiday-name">Spanish Stadium Tours</h2>
+                                <p class="holiday-price">Price: £3790</p>
+                                <p class="holiday-date">8th - 15th March 2026</p>
+                                <div class="colour-nav-block id-1"></div>
+                            </div>
+                        </div>
 
-              <div class="holiday-card">
-                <div class="holiday-image">
-                  <img
-                    src="img/holidays/azores/lake.jpg"
-                    class="holiday-thumb id-2"
-                    alt="The Azores"
-                  />
-                  <a href="the-azores.html"
-                    ><button class="card-btn">View details</button></a
-                  >
-                </div>
-                <div class="holiday-info">
-                  <h2 class="holiday-name">The Azores</h2>
-                  <p class="holiday-price">Price: £3620</p>
-                  <p class="holiday-date">17th - 24th March 2026</p>
-                  <div class="colour-nav-block id-2"></div>
-                </div>
-              </div>
+                        <div class="holiday-card">
+                            <div class="holiday-image">
+                                <img src="img/holidays/azores/lake.jpg" class="holiday-thumb id-2" alt="The Azores" />
+                                <a href="the-azores.html"><button class="card-btn">View details</button></a>
+                            </div>
+                            <div class="holiday-info">
+                                <h2 class="holiday-name">The Azores</h2>
+                                <p class="holiday-price">Price: £3620</p>
+                                <p class="holiday-date">17th - 24th March 2026</p>
+                                <div class="colour-nav-block id-2"></div>
+                            </div>
+                        </div>
 
-              <div class="holiday-card">
-                <div class="holiday-image">
-                  <img
-                    src="img/holidays/Greece/new/main picture - Copy.jpg"
-                    class="holiday-thumb id-3"
-                    alt="Magical Madeira"
-                  />
-                  <a href="mamma-mia-here-we-go-beyond-again-again.html"
-                    ><button class="card-btn">View details</button></a
-                  >
-                </div>
-                <div class="holiday-info">
-                  <h2 class="holiday-name">
-                    Mamma Mia Here We 'Go Beyond' Again... Again!
-                  </h2>
-                  <p class="holiday-price">Price: £3810</p>
-                  <p class="holiday-date">5th - 12th May 2026</p>
-                  <div class="colour-nav-block id-3"></div>
-                </div>
-              </div>
+                        <div class="holiday-card">
+                            <div class="holiday-image">
+                                <img src="img/holidays/Greece/new/main picture - Copy.jpg" class="holiday-thumb id-3"
+                                    alt="Magical Madeira" />
+                                <a href="mamma-mia-here-we-go-beyond-again-again.html"><button class="card-btn">View
+                                        details</button></a>
+                            </div>
+                            <div class="holiday-info">
+                                <h2 class="holiday-name">
+                                    Mamma Mia Here We 'Go Beyond' Again... Again!
+                                </h2>
+                                <p class="holiday-price">Price: £3810</p>
+                                <p class="holiday-date">5th - 12th May 2026</p>
+                                <div class="colour-nav-block id-3"></div>
+                            </div>
+                        </div>
 
-              <div class="holiday-card">
-                <div class="holiday-image">
-                  <img
-                    src="img/holidays/Estonia/main image.jpg"
-                    class="holiday-thumb id-4"
-                    alt="Discover Estonia"
-                  />
-                  <a href="discover-estonia.html"
-                    ><button class="card-btn">View details</button></a
-                  >
-                </div>
-                <div class="holiday-info">
-                  <h2 class="holiday-name">Discover Estonia</h2>
-                  <p class="holiday-price">Price: £3900</p>
-                  <p class="holiday-date">21st - 29th May 2026</p>
-                  <div class="colour-nav-block id-4"></div>
-                </div>
-              </div>
+                        <div class="holiday-card">
+                            <div class="holiday-image">
+                                <img src="img/holidays/Estonia/main image.jpg" class="holiday-thumb id-4"
+                                    alt="Discover Estonia" />
+                                <a href="discover-estonia.html"><button class="card-btn">View details</button></a>
+                            </div>
+                            <div class="holiday-info">
+                                <h2 class="holiday-name">Discover Estonia</h2>
+                                <p class="holiday-price">Price: £3900</p>
+                                <p class="holiday-date">21st - 29th May 2026</p>
+                                <div class="colour-nav-block id-4"></div>
+                            </div>
+                        </div>
 
-              <div class="holiday-card">
-                <div class="holiday-image">
-                  <img
-                    src="img/holidays/Ireland/museum.jpg"
-                    class="holiday-thumb id-5"
-                    alt="Northern Irish Stories"
-                  />
-                  <a href="northern-irish-stories.html"
-                    ><button class="card-btn">View details</button></a
-                  >
-                </div>
-                <div class="holiday-info">
-                  <h2 class="holiday-name">Northern Irish Stories</h2>
-                  <p class="holiday-price">Price: £3710</p>
-                  <p class="holiday-date">15th - 22nd June 2026</p>
-                  <div class="colour-nav-block id-5"></div>
-                </div>
-              </div>
+                        <div class="holiday-card">
+                            <div class="holiday-image">
+                                <img src="img/holidays/Ireland/museum.jpg" class="holiday-thumb id-5"
+                                    alt="Northern Irish Stories" />
+                                <a href="northern-irish-stories.html"><button class="card-btn">View details</button></a>
+                            </div>
+                            <div class="holiday-info">
+                                <h2 class="holiday-name">Northern Irish Stories</h2>
+                                <p class="holiday-price">Price: £3710</p>
+                                <p class="holiday-date">15th - 22nd June 2026</p>
+                                <div class="colour-nav-block id-5"></div>
+                            </div>
+                        </div>
 
-              <div class="holiday-card">
-                <div class="holiday-image">
-                  <img
-                    src="img/holidays/brittany adventure/main image.jpg"
-                    class="holiday-thumb id-6"
-                    alt="Brittany Adventure"
-                  />
-                  <a href="brittany-adventure.html"
-                    ><button class="card-btn">View details</button></a
-                  >
-                </div>
-                <div class="holiday-info">
-                  <h2 class="holiday-name">Brittany Adventure</h2>
-                  <p class="holiday-price">Price: £3360</p>
-                  <p class="holiday-date">7th - 14th August 2026</p>
-                  <div class="colour-nav-block id-6"></div>
-                </div>
-              </div>
+                        <div class="holiday-card">
+                            <div class="holiday-image">
+                                <img src="img/holidays/brittany adventure/main image.jpg" class="holiday-thumb id-6"
+                                    alt="Brittany Adventure" />
+                                <a href="brittany-adventure.html"><button class="card-btn">View details</button></a>
+                            </div>
+                            <div class="holiday-info">
+                                <h2 class="holiday-name">Brittany Adventure</h2>
+                                <p class="holiday-price">Price: £3360</p>
+                                <p class="holiday-date">7th - 14th August 2026</p>
+                                <div class="colour-nav-block id-6"></div>
+                            </div>
+                        </div>
 
-              <div class="holiday-card">
-                <div class="holiday-image">
-                  <img
-                    src="img/holidays/Brittany Culture/main image.jpg"
-                    class="holiday-thumb id-7"
-                    alt="Brittany Culture"
-                  />
-                  <a href="brittany-culture.html"
-                    ><button class="card-btn">View details</button></a
-                  >
-                </div>
-                <div class="holiday-info">
-                  <h2 class="holiday-name">Culture of Brittany</h2>
-                  <p class="holiday-price">Price: £3280</p>
-                  <p class="holiday-date">15th - 22nd August 2026</p>
-                  <div class="colour-nav-block id-7"></div>
-                </div>
-              </div>
+                        <div class="holiday-card">
+                            <div class="holiday-image">
+                                <img src="img/holidays/Brittany Culture/main image.jpg" class="holiday-thumb id-7"
+                                    alt="Brittany Culture" />
+                                <a href="brittany-culture.html"><button class="card-btn">View details</button></a>
+                            </div>
+                            <div class="holiday-info">
+                                <h2 class="holiday-name">Culture of Brittany</h2>
+                                <p class="holiday-price">Price: £3280</p>
+                                <p class="holiday-date">15th - 22nd August 2026</p>
+                                <div class="colour-nav-block id-7"></div>
+                            </div>
+                        </div>
 
-              <div class="holiday-card">
-                <div class="holiday-image">
-                  <img
-                    src="img/holidays/Brittany Gourmande/main photo.jpg"
-                    class="holiday-thumb id-8"
-                    alt="Brittany Gourmande"
-                  />
-                  <a href="brittany-gourmande.html"
-                    ><button class="card-btn">View details</button></a
-                  >
-                </div>
-                <div class="holiday-info">
-                  <h2 class="holiday-name">Brittany Gourmande</h2>
-                  <p class="holiday-price">Price: £3410</p>
-                  <p class="holiday-date">23rd - 30th August 2026</p>
-                  <div class="colour-nav-block id-8"></div>
-                </div>
-              </div>
+                        <div class="holiday-card">
+                            <div class="holiday-image">
+                                <img src="img/holidays/Brittany Gourmande/main photo.jpg" class="holiday-thumb id-8"
+                                    alt="Brittany Gourmande" />
+                                <a href="brittany-gourmande.html"><button class="card-btn">View details</button></a>
+                            </div>
+                            <div class="holiday-info">
+                                <h2 class="holiday-name">Brittany Gourmande</h2>
+                                <p class="holiday-price">Price: £3410</p>
+                                <p class="holiday-date">23rd - 30th August 2026</p>
+                                <div class="colour-nav-block id-8"></div>
+                            </div>
+                        </div>
 
-              <div class="holiday-card">
-                <div class="holiday-image">
-                  <img
-                    src="img/holidays/best brittany/main image.jpg"
-                    class="holiday-thumb id-9"
-                    alt="Best of Brittany"
-                  />
-                  <a href="best-of-brittany.html"
-                    ><button class="card-btn">View details</button></a
-                  >
-                </div>
-                <div class="holiday-info">
-                  <h2 class="holiday-name">Best of Brittany</h2>
-                  <p class="holiday-price">Price: £3360</p>
-                  <p class="holiday-date">31st August - 7th September 2026</p>
-                  <div class="colour-nav-block id-9"></div>
-                </div>
-              </div>
+                        <div class="holiday-card">
+                            <div class="holiday-image">
+                                <img src="img/holidays/best brittany/main image.jpg" class="holiday-thumb id-9"
+                                    alt="Best of Brittany" />
+                                <a href="best-of-brittany.html"><button class="card-btn">View details</button></a>
+                            </div>
+                            <div class="holiday-info">
+                                <h2 class="holiday-name">Best of Brittany</h2>
+                                <p class="holiday-price">Price: £3360</p>
+                                <p class="holiday-date">31st August - 7th September 2026</p>
+                                <div class="colour-nav-block id-9"></div>
+                            </div>
+                        </div>
 
-              <div class="holiday-card">
-                <div class="holiday-image">
-                  <img
-                    src="img/holidays/Malta26/Main Image.jpg"
-                    class="holiday-thumb id-10"
-                    alt="Malta"
-                  />
-                  <a href="malta-gem-of-the-mediterranean.html"
-                    ><button class="card-btn">View details</button></a
-                  >
-                </div>
-                <div class="holiday-info">
-                  <h2 class="holiday-name">Malta - Gem of The Mediterranean</h2>
-                  <p class="holiday-price">Price: £3280</p>
-                  <p class="holiday-date">4th - 11th October 2026</p>
-                  <div class="colour-nav-block id-10"></div>
-                </div>
-              </div>
+                        <div class="holiday-card">
+                            <div class="holiday-image">
+                                <img src="img/holidays/Malta26/Main Image.jpg" class="holiday-thumb id-10"
+                                    alt="Malta" />
+                                <a href="malta-gem-of-the-mediterranean.html"><button class="card-btn">View
+                                        details</button></a>
+                            </div>
+                            <div class="holiday-info">
+                                <h2 class="holiday-name">Malta - Gem of The Mediterranean</h2>
+                                <p class="holiday-price">Price: £3280</p>
+                                <p class="holiday-date">4th - 11th October 2026</p>
+                                <div class="colour-nav-block id-10"></div>
+                            </div>
+                        </div>
 
-              <div class="holiday-card">
-                <div class="holiday-image">
-                  <img
-                    src="img/holidays/Slovenia/Main Image - crop.jpg"
-                    class="holiday-thumb id-11"
-                    alt="Autumn in Slovenia"
-                  />
-                  <a href="autumn-in-slovenia.html"
-                    ><button class="card-btn">View details</button></a
-                  >
-                </div>
-                <div class="holiday-info">
-                  <h2 class="holiday-name">Autumn in Slovenia</h2>
-                  <p class="holiday-price">Price: £3710</p>
-                  <p class="holiday-date">13th - 20th October 2026</p>
-                  <div class="colour-nav-block id-11"></div>
-                </div>
-              </div>
+                        <div class="holiday-card">
+                            <div class="holiday-image">
+                                <img src="img/holidays/Slovenia/Main Image - crop.jpg" class="holiday-thumb id-11"
+                                    alt="Autumn in Slovenia" />
+                                <a href="autumn-in-slovenia.html"><button class="card-btn">View details</button></a>
+                            </div>
+                            <div class="holiday-info">
+                                <h2 class="holiday-name">Autumn in Slovenia</h2>
+                                <p class="holiday-price">Price: £3710</p>
+                                <p class="holiday-date">13th - 20th October 2026</p>
+                                <div class="colour-nav-block id-11"></div>
+                            </div>
+                        </div>
 
-              <div class="holiday-card">
-                <div class="holiday-image">
-                  <img
-                    src="img/holidays/norway/Main Image.jpeg"
-                    class="holiday-thumb id-12"
-                    alt="Norway Northern Lights"
-                  />
-                  <a href="norway-northern-lights.html"
-                    ><button class="card-btn">View details</button></a
-                  >
-                </div>
-                <div class="holiday-info">
-                  <h2 class="holiday-name">Norway Northern Lights</h2>
-                  <p class="holiday-price">Price: £3900</p>
-                  <p class="holiday-date">22nd - 29th October 2026</p>
-                  <div class="colour-nav-block id-12"></div>
-                </div>
-              </div>
+                        <div class="holiday-card">
+                            <div class="holiday-image">
+                                <img src="img/holidays/norway/Main Image.jpeg" class="holiday-thumb id-12"
+                                    alt="Norway Northern Lights" />
+                                <a href="norway-northern-lights.html"><button class="card-btn">View details</button></a>
+                            </div>
+                            <div class="holiday-info">
+                                <h2 class="holiday-name">Norway Northern Lights</h2>
+                                <p class="holiday-price">Price: £3900</p>
+                                <p class="holiday-date">22nd - 29th October 2026</p>
+                                <div class="colour-nav-block id-12"></div>
+                            </div>
+                        </div>
 
-              <div class="holiday-card">
-                <div class="holiday-image">
-                  <img
-                    src="img/holidays/cornwall/main image.JPG"
-                    class="holiday-thumb id-13"
-                    alt="Christmas in Cornwall"
-                  />
-                  <a href="christmas-in-cornwall.html"
-                    ><button class="card-btn">View details</button></a
-                  >
-                </div>
-                <div class="holiday-info">
-                  <h2 class="holiday-name">Christmas in Cornwall</h2>
-                  <p class="holiday-price">Price: £2850</p>
-                  <p class="holiday-date">9th - 14th December 2026</p>
-                  <div class="colour-nav-block id-13"></div>
-                </div>
-              </div>
-            </div>
-          </section>
+                        <div class="holiday-card">
+                            <div class="holiday-image">
+                                <img src="img/holidays/cornwall/main image.JPG" class="holiday-thumb id-13"
+                                    alt="Christmas in Cornwall" />
+                                <a href="christmas-in-cornwall.html"><button class="card-btn">View details</button></a>
+                            </div>
+                            <div class="holiday-info">
+                                <h2 class="holiday-name">Christmas in Cornwall</h2>
+                                <p class="holiday-price">Price: £2850</p>
+                                <p class="holiday-date">9th - 14th December 2026</p>
+                                <div class="colour-nav-block id-13"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 <section class="why-choose-us" id="why-choose-us">
                     <h1 style="text-align: center; font-weight: bold; color: white; margin-bottom: 100px;">Why travel
@@ -483,13 +470,14 @@
                         <h3 style="text-align: left; font-weight: bold;"><i class="fa fa-phone"></i> 00 44 7904
                             878365</h3>
                         <h3 style="text-align: left; font-weight: bold;"><i class="fa fa-envelope"></i>
-                            
-info@gobeyondholidays.com</h3>
+
+                            info@gobeyondholidays.com</h3>
                         <h3 style="text-align: left; font-weight: bold;"><i class="fa fa-house"></i> 98 Thicket
                             Avenue, Fishponds, Bristol, BS16
                             4JQ
                         </h3>
-                        <h3 style="text-align: left; font-weight: bold;"><i class="fa fa-calendar"></i> Mon - Fri 9-5 Sat-Sun 10-3</h3>
+                        <h3 style="text-align: left; font-weight: bold;"><i class="fa fa-calendar"></i> Mon - Fri 9-5
+                            Sat-Sun 10-3</h3>
                         <div class="icons">
                             <a href="https://www.facebook.com/gobeyondhols
                             " target="_blank"> <span class="dot"><i class="fab fa-facebook fa-lg"></i></span></a>
@@ -515,8 +503,8 @@ info@gobeyondholidays.com</h3>
                         <p>
                             Phone number <span class="new-line"> 00 44 7904 878365</span>
                         </p>
-                        <p>E-mail: 
-info@gobeyondholidays.com</p>
+                        <p>E-mail:
+                            info@gobeyondholidays.com</p>
                     </div>
                     <div class="column">
                         <img src="img/footer/360logo.jpg" alt="">

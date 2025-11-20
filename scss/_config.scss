@@ -5,7 +5,7 @@ $accent-colour: yellow;
 $show-home-image: true;
 $logo-image: url(../img/logo.jpg);
 $sidebar-image1: url(../img/2026-cover.jpg);
-$sidebar-image2: url("../img/blog/Florence Blog/header169.jpg");
+$sidebar-image2: url("../img/blog/Florence Blog/IMG_6631.jpg");
 $sidebar-image3: url(../img/iceland-rainbow-walk.jpg);
 $sidebar-image4: url(../img/sunday-times-05Feb23.jpg);
 
@@ -288,4 +288,75 @@ $showcase-image5: url(../img/WhyChooseUsGrid/grid-img5.jpg);
   .get-in-touch {
     padding-left: 30vw !important;
   }
+}
+
+.facebook-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  height: 600px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.facebook-wrapper iframe {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: white;
+}
+
+.fb-fallback {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.fb-fallback i {
+  color: #1877f2;
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+.fb-fallback h3 {
+  font-size: 1.2rem;
+  margin: 0 0 5px 0;
+  color: #333;
+}
+.fb-fallback p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+.fb-btn {
+  background-color: #1877f2;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+.fb-btn:hover {
+  background-color: #1155aa;
 }
