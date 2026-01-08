@@ -39,7 +39,7 @@
                     Lying 90 kilometres to the south of Sicily and 300 kilometres north of Africa, Malta sits centrally in the Mediterranean sea.  Being a naval strategic point, Malta and its smaller islands Gozo and Comino, have a rich and diverse history and we’ll spend our week experiencing all these wonderful islands have to offer.
                 </p>
                 <p>
-                    Malta is a firm favourite of Go Beyond’s and we have again put together a travel experience that we think you will love.  Our base will be the exotic QAWRA Palace Resort & Spa Hotel.  Equipped with three swimming pools, a spa, a wellness centre and a large buffet-style restaurant, we think we have chosen the perfect accommodation to relax in.  Added to this is there’s entertainment every evening in the hotel with live performances, discos and everyone’s favourite – karaoke!
+                    Malta is a firm favourite of Go Beyond’s and we have again put together a travel experience that we think you will love.  Our base will be the exotic Pergola Hotel & Spa.  Equipped with indoor and outdoor swimming pools, a spa, a wellness centre and a restaurant, we think we have chosen the perfect accommodation to relax in.
                 </p>
                 <p>
                     Naturally, we’ll be filling our days with planned activities that will get us out and about around the Maltese archipelago.  We will take a boat trip around the Three Cities that are situated in the main harbour near Valletta.  We’ll jump on a ferry to Gozo relaxing on Ramla Beach, spend time visiting the town of Victoria and it’s Cittadella.  We will take you on a Maltese food tour in the capital, Valletta, all those local tastes and smells will definitely excite your taste buds! Plus, we will look forward to our day out to the Popeye theme park,  as well as to our kayaking tour along a section of the beautiful coastline. There’s a visit to the local aquarium and the fascinating classic car museum that exhibits over 100 classic cars.  There’s so much to see and do, but as always, there will be a rest day, where you will have use of all three swimming pools!
@@ -57,7 +57,7 @@
                     Where you'll be staying...
                 </h3>
                 <p>
-                    Overlooking St Pauls Bay, QAWRA Palace Resort & SPA has its own indoor and outdoor swimming pools. It also features a mini golf course and a games room with pool table.  We are pleased to be returning to this fabulous hotel.
+                    Overlooking Mellieħa Bay, the Pergola Hotel & Spa offers both indoor and outdoor swimming pools, a relaxing spa, and a beautiful roof terrace.
                 </p>
 
                 <h3 class="bold" style="display: flex; align-items: center;">
@@ -68,11 +68,9 @@
                 </h3>
 
                 <p>
-                    We will be fully catered for by the hotel.  There are four restaurants to choose from at the Qawra Palace Hotel. Each restaurant is themed with either Mediterranean, Asian, South American and Caribbean, plenty of choice.
+                    We will be fully catered for by the hotel. The Pergola Hotel  has a full English and Continental Buffet served during the morning and a buffet dinner with various weekly themes is served during the evenings, plenty of choice for everyone.
                 </p>
-                <p>
-                    Breakfast at the Qawra Palace is buffet style and includes both sweet and savoury items such as eggs, sausages and cereal.
-                </p>
+         
 
                 <h3 class="bold" style="display: flex; align-items: center;">
                     <div class="dot" style="margin: 10px;">
@@ -163,7 +161,7 @@
                     <p>
                     <div class="bold">Nights</div>7</p>
                     <p>
-                    <div class="bold">Accommodation</div>QAWRA Palace Resort and Spa hotel</p>
+                    <div class="bold">Accommodation</div>The Pergola Hotel & Spa</p>
                     <p>
                     <div class="bold">Food</div>All food will be catered for by the hotel</p>
                     <p>
@@ -227,6 +225,45 @@
                     <!--HIDDEN FIELD HERE-->
                     <input type="hidden" id="holiday" name="holiday" value="Filled out the form for Malta - Gem of the Mediterranean">
                     <!--set the 'value' to the specific holiday for this page -->
+
+             <!-- How did you hear about us? Row -->
+                <div class="input-row">
+                  <div class="field">
+                    <select
+                      class="item"
+                      id="source"
+                      name="how_did_you_hear"
+                      required
+                    >
+                      <option value="" disabled selected>
+                        How did you hear about us? (required)
+                      </option>
+                      <option value="Online search">On-line search</option>
+                      <option value="Recommendation">Recommendation</option>
+                      <option value="Social media">Social media</option>
+                      <option value="Autism Eye">Autism Eye</option>
+                      <option value="Other">Other (please state below)</option>
+                    </select>
+                    <div class="error-txt">Please select an option</div>
+                  </div>
+                </div>
+
+                <!-- This field is optional: it allows them to type an 'Other' if they chose it -->
+                <div
+                  class="input-row"
+                  id="other-source-wrap"
+                  style="display: none; margin-top: -10px"
+                >
+                  <div class="field">
+                    <input
+                      type="text"
+                      class="item"
+                      id="other_source"
+                      name="other_source_details"
+                      placeholder="Please tell us where you heard about us"
+                    />
+                  </div>
+                </div>
 
                     <div class="field textarea-field">
                         <textarea class="item textarea-item" id="message" name="message"

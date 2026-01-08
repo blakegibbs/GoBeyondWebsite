@@ -1445,6 +1445,22 @@
   min-height: 120px;
 }
 
+select.item {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgb(43, 43, 43)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 15px;
+}
+select.item:invalid,
+select.item option[value=""] {
+  color: rgba(43, 43, 43, 0.7);
+}
+select.item option {
+  color: rgb(43, 43, 43);
+}
+
 .error-txt {
   display: none;
   font-size: 14px;

@@ -890,3 +890,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+///////////////////////////////////////////////////////
+
+//contact form optional other field "how did you hear about us?"
+
+const sourceSelect = document.getElementById("source");
+const otherSourceWrap = document.getElementById("other-source-wrap");
+
+sourceSelect.addEventListener("change", function () {
+  if (this.value === "Other") {
+    otherSourceWrap.style.display = "block";
+    document.getElementById("other_source").setAttribute("required", "true");
+  } else {
+    otherSourceWrap.style.display = "none";
+    document.getElementById("other_source").removeAttribute("required");
+  }
+});
