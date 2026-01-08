@@ -191,7 +191,7 @@
 .facebook-wrapper {
   position: relative;
   width: 100%;
-  max-width: 520px;
+  max-width: 500px;
   height: 600px;
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
@@ -262,6 +262,11 @@
   background-color: #1155aa;
 }
 
+@media screen and (max-width: 600px) {
+  .facebook-wrapper {
+    display: none !important;
+  }
+}
 .close-menu-button {
   position: absolute;
   z-index: 3;
