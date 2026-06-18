@@ -546,3 +546,200 @@ main {
     }
   }
 }
+
+
+/* ==========================================================================
+   Magazine Subscriptions & Gallery Pieces
+   ========================================================================== */
+
+// Right hand side premium subscription card
+.magazine-subscribe-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f6f8fa 100%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 2.2rem 1.8rem;
+  border-radius: 16px; // Modern rounded aesthetic
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  max-width: 570px;
+  margin: 0 auto;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  }
+
+  .magazine-preview-img {
+    width: 100%;
+    height: auto;
+    max-height: 380px;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); // Drop shadow specifically for the magazine cover
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+
+  .subscribe-btn {
+    background-color: $secondary-colour;
+    color: white;
+    font-weight: bold;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      background-color: #000000;
+      color: white;
+      transform: scale(1.02);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
+    
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}
+// Magazine Image Gallery Grid (Responsive & Aspect-Ratio Preserved)
+// Magazine Image Gallery Grid (Responsive & Aspect-Ratio Preserved)
+.magazine-gallery-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+
+  .gallery-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    
+    /* CHANGE THIS FROM 'start' TO 'center' */
+    align-items: center; 
+
+    @media (max-width: 900px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 500px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .gallery-item {
+    overflow: hidden;
+    border-radius: 8px; 
+    background: transparent; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+
+    &:hover {
+      /* Adjusted to safely scale on center axis instead of jumping upwards */
+      transform: scale(1.03);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto; 
+      object-fit: contain; 
+    }
+  }
+}
+
+// Global Horizontal Separation Line 
+hr.separator {
+  border: 0;
+  height: 1px;
+  background: #ddd;
+  max-width: 1200px;
+  margin: 3rem auto;
+}
+
+// Related Blog Posts Grid (3 columns)
+.related-posts-section {
+  max-width: 1200px;
+  margin: 0 auto 4rem auto;
+  padding: 0 2rem;
+
+  .related-posts-heading {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: black;
+  }
+
+  .related-posts-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 25px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .related-post-item {
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
+
+  .related-post-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .related-post-thumbnail {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .related-post-content {
+    padding: 1rem;
+
+    .related-post-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      line-height: 1.4;
+      color: black;
+      margin-bottom: 0.5rem;
+      // Truncate cleanly if titles span too far
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .related-post-date {
+      font-size: 0.85rem;
+      color: #777;
+      margin: 0;
+    }
+  }
+}
