@@ -42,6 +42,29 @@
             </div>
         </section>
 
+        <!-- Countdown Banner Component -->
+<div class="countdown-container">
+  <h2 class="countdown-title">2027 Holidays Launching in...</h2>
+  <div class="countdown-timer" id="countdown">
+    <div class="time-block">
+      <span class="number" id="days">00</span>
+      <span class="label">Days</span>
+    </div>
+    <div class="time-block">
+      <span class="number" id="hours">00</span>
+      <span class="label">Hours</span>
+    </div>
+    <div class="time-block">
+      <span class="number" id="minutes">00</span>
+      <span class="label">Minutes</span>
+    </div>
+    <div class="time-block">
+      <span class="number" id="seconds">00</span>
+      <span class="label">Seconds</span>
+    </div>
+  </div>
+</div>
+
         <div class="main-wrap">
             <div class="content-left">
                 <h1 class="lg-heading">
@@ -383,19 +406,7 @@
                             </div>
                         </div>
 
-                        <div class="holiday-card">
-                            <div class="holiday-image">
-                                <img src="img/holidays/cornwall/main image.JPG" class="holiday-thumb id-13"
-                                    alt="Christmas in Cornwall" />
-                                <a href="christmas-in-cornwall.html"><button class="card-btn">View details</button></a>
-                            </div>
-                            <div class="holiday-info">
-                                <h2 class="holiday-name">Christmas in Cornwall</h2>
-                                <p class="holiday-price">Price: £2850</p>
-                                <p class="holiday-date">9th - 14th December 2026</p>
-                                <div class="colour-nav-block id-13"></div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </section>
 
@@ -515,6 +526,36 @@
 
     </main>
     <script src="js/main.js"></script>
+
+    <script>
+  const targetDate = new Date('September 25, 2026 20:00:00').getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance < 0) {
+      document.getElementById('countdown').innerHTML = "<h3>2027 Holidays Are Live!</h3>";
+      return;
+    }
+
+    // Time calculations
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Render with leading zeros
+    document.getElementById('days').innerText = String(days).padStart(2, '0');
+    document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+    document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+    document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+  }
+
+  // Run immediately, then repeat every second
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
 </body>
 
 </html>

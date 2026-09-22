@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloading Your Magazine...</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 { color: #333; }
+        p { color: #666; font-size: 18px; }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Thank you!</h1>
+    <p>Your download should start automatically in a moment.</p>
+    
+    <p>If it doesn't start, <a id="download-link" class="btn" href="Beyond%20Travel%20Issue%201.pdf" download>Click here to download manually</a></p>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const link = document.getElementById("download-link");
+        link.click(); 
+    });
+</script>
+
+</body>
+</html>
