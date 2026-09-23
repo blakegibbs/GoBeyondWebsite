@@ -48,7 +48,7 @@ html {
 
 .logo-image {
   @include logoImage();
-  height: 99px;
+  height: 150px;
   width: 350px;
   flex-shrink: 0;
 }
