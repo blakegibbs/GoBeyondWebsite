@@ -227,6 +227,45 @@
                     <input type="hidden" id="holiday" name="holiday" value="Filled out the form for Brittany Adventure">
                     <!--set the 'value' to the specific holiday for this page -->
 
+             <!-- How did you hear about us? Row -->
+                <div class="input-row">
+                  <div class="field">
+                    <select
+                      class="item"
+                      id="source"
+                      name="how_did_you_hear"
+                      required
+                    >
+                      <option value="" disabled selected>
+                        How did you hear about us? (required)
+                      </option>
+                      <option value="Online search">On-line search</option>
+                      <option value="Recommendation">Recommendation</option>
+                      <option value="Social media">Social media</option>
+                      <option value="Autism Eye">Autism Eye</option>
+                      <option value="Other">Other (please state below)</option>
+                    </select>
+                    <div class="error-txt">Please select an option</div>
+                  </div>
+                </div>
+
+                <!-- This field is optional: it allows them to type an 'Other' if they chose it -->
+                <div
+                  class="input-row"
+                  id="other-source-wrap"
+                  style="display: none; margin-top: -10px"
+                >
+                  <div class="field">
+                    <input
+                      type="text"
+                      class="item"
+                      id="other_source"
+                      name="other_source_details"
+                      placeholder="Please tell us where you heard about us"
+                    />
+                  </div>
+                </div>
+
                     <div class="field textarea-field">
                         <textarea class="item textarea-item" id="message" name="message"
                             placeholder="Is there anything else we need to know about?"></textarea>
