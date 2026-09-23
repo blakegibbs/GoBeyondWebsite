@@ -2,7 +2,7 @@
   "name": "gobeyondwebsite",
   "version": "1.0.0",
   "description": "Go Beyond Holidays website",
-  "main": "index.js",
+  "main": "index.html",
   "homepage": "https://blakegibbs.github.io/GoBeyondWebsite",
   "scripts": {
     "sass": "sass --watch scss:dist/css",
