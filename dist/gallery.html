@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="icon" type="image/x-icon" href="img/title-logo.jpg" />
+
+    <title>Gallery - Go Beyond Holidays</title>
+  </head>
+
+  <body>
+    <main>
+      <div id="header-placeholder"></div>
+
+      <section class="image-bar">
+        <img src="img/slider/slider-03.jpg" alt="Gallery Header Banner" />
+      </section>
+
+      <div class="main-wrap">
+        <div class="central-content">
+          <section class="gallery-container">
+            <h1 class="lg-heading gallery-title">The Go Beyond Holiday Gallery</h1>
+            <p class="gallery-subtitle"></p>
+
+            <div class="photo-grid" id="photo-grid"></div>
+
+            <div id="scroll-sentinel" class="scroll-sentinel"></div>
+          </section>
+        </div>
+      </div>
+
+      <div id="image-modal" class="modal" aria-hidden="true" role="dialog">
+        <div class="modal-image-wrapper">
+          <img class="modal-content" id="modal-image" alt="Enlarged gallery view" />
+          <span class="modal-close-button" id="modal-close" aria-label="Close modal">&times;</span>
+        </div>
+        <a class="modal-prev" id="modal-prev" aria-label="Previous image">&#10094;</a>
+        <a class="modal-next" id="modal-next" aria-label="Next image">&#10095;</a>
+      </div>
+
+      <section class="pre-footer">
+        <div class="column">
+          <img src="img/logo.jpg" alt="Go Beyond Holidays Logo" class="gb-logo" />
+          <p>
+            Go Beyond Holidays is an independent agent for 360 Private Travel. All flights and
+            flight-inclusive holidays on this website are financially protected by the ATOL scheme.
+          </p>
+          <p>Phone number <span class="new-line"> 00 44 7904 878365</span></p>
+          <p>E-mail: info@gobeyondholidays.com</p>
+        </div>
+        <div class="column">
+          <img src="img/footer/360logo.jpg" alt="360 Private Travel Logo" />
+          <p>Registered Name & Address:</p>
+          <p>360 Private Travel Limited, 54 High Street, Sevenoaks, TN13 1JG, United Kingdom,</p>
+          <p>Registration Number: 8512928. Registered in England & Wales</p>
+          <p>
+            VAT Number: 163818688
+            <span class="new-line">ATOL 7514 IATA 91-2 0005 6 <span class="new-line">Virtuoso Member Number 3251</span></span>
+          </p>
+        </div>
+        <div class="column">
+          <b><p>An independent affiliate of</p></b>
+          <img src="img/footer/360-virtuoso.jpg" alt="Virtuoso Member Logo" class="member-of" />
+          <p>
+            360 Private Travel is a member of Virtuoso, allowing Go Beyond Holidays access to
+            preferential rates and exclusive benefits at some of the finest hotels around the world.
+          </p>
+          <b><p>For Your Financial Protection</p></b>
+          <img src="img/footer/atol-logo.jpg" alt="ATOL Logo" />
+        </div>
+      </section>
+
+      <div class="footer">
+        <p class="copyright">
+          <i class="fa fa-copyright"></i> Go Beyond Holidays 2010-2026
+        </p>
+        <p class="phone">
+          <i class="fa fa-phone"></i> Call us: 00 44 7904 878365
+        </p>
+      </div>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const galleryImages = [
+          { src: "img/gallery/1.jpg", alt: "Gallery Photo 1" },
+          { src: "img/gallery/01.jpg", alt: "Gallery Photo 01" },
+          { src: "img/gallery/2.jpg", alt: "Gallery Photo 2" },
+          { src: "img/gallery/3.jpg", alt: "Gallery Photo 3" },
+          { src: "img/gallery/6.jpg", alt: "Gallery Photo 6" },
+          { src: "img/gallery/6 (2).jpg", alt: "Gallery Photo 6 (2)" },
+          { src: "img/gallery/8.jpg", alt: "Gallery Photo 8" },
+          { src: "img/gallery/9.jpg", alt: "Gallery Photo 9" },
+          { src: "img/gallery/10.jpg", alt: "Gallery Photo 10" },
+          { src: "img/gallery/11.jpg", alt: "Gallery Photo 11" },
+          { src: "img/gallery/12.jpg", alt: "Gallery Photo 12" },
+          { src: "img/gallery/13.jpg", alt: "Gallery Photo 13" },
+          { src: "img/gallery/14.jpg", alt: "Gallery Photo 14" },
+          { src: "img/gallery/15.jpg", alt: "Gallery Photo 15" },
+          { src: "img/gallery/15 (2).jpg", alt: "Gallery Photo 15 (2)" },
+          { src: "img/gallery/16.jpg", alt: "Gallery Photo 16" },
+          { src: "img/gallery/17.jpg", alt: "Gallery Photo 17" },
+          { src: "img/gallery/19.jpg", alt: "Gallery Photo 19" },
+          { src: "img/gallery/19 (2).jpg", alt: "Gallery Photo 19 (2)" },
+          { src: "img/gallery/21.jpg", alt: "Gallery Photo 21" },
+          { src: "img/gallery/23.jpg", alt: "Gallery Photo 23" },
+          { src: "img/gallery/24.jpg", alt: "Gallery Photo 24" },
+          { src: "img/gallery/25.jpg", alt: "Gallery Photo 25" },
+          { src: "img/gallery/26.jpg", alt: "Gallery Photo 26" },
+          { src: "img/gallery/26 (2).jpg", alt: "Gallery Photo 26 (2)" },
+          { src: "img/gallery/27a.jpg", alt: "Gallery Photo 27a" },
+          { src: "img/gallery/28.jpg", alt: "Gallery Photo 28" },
+          { src: "img/gallery/29.jpg", alt: "Gallery Photo 29" },
+          { src: "img/gallery/31.jpg", alt: "Gallery Photo 31" },
+          { src: "img/gallery/32.jpg", alt: "Gallery Photo 32" },
+          { src: "img/gallery/34.jpg", alt: "Gallery Photo 34" },
+          { src: "img/gallery/34 (2).jpg", alt: "Gallery Photo 34 (2)" },
+          { src: "img/gallery/35.jpg", alt: "Gallery Photo 35" },
+          { src: "img/gallery/36.jpg", alt: "Gallery Photo 36" },
+          { src: "img/gallery/36 (2).jpg", alt: "Gallery Photo 36 (2)" },
+          { src: "img/gallery/37.jpg", alt: "Gallery Photo 37" },
+          { src: "img/gallery/39.jpg", alt: "Gallery Photo 39" },
+          { src: "img/gallery/40.jpg", alt: "Gallery Photo 40" },
+          { src: "img/gallery/40 (2).jpg", alt: "Gallery Photo 40 (2)" },
+          { src: "img/gallery/40 (3).jpg", alt: "Gallery Photo 40 (3)" },
+          { src: "img/gallery/40 (4).jpg", alt: "Gallery Photo 40 (4)" },
+          { src: "img/gallery/41.jpg", alt: "Gallery Photo 41" },
+          { src: "img/gallery/42.jpg", alt: "Gallery Photo 42" },
+          { src: "img/gallery/43.jpg", alt: "Gallery Photo 43" },
+          { src: "img/gallery/43 (2).jpg", alt: "Gallery Photo 43 (2)" },
+          { src: "img/gallery/44.jpg", alt: "Gallery Photo 44" },
+          { src: "img/gallery/45.jpg", alt: "Gallery Photo 45" },
+          { src: "img/gallery/45 (2).jpg", alt: "Gallery Photo 45 (2)" },
+          { src: "img/gallery/50.jpg", alt: "Gallery Photo 50" },
+          { src: "img/gallery/52.jpg", alt: "Gallery Photo 52" },
+          { src: "img/gallery/54.jpg", alt: "Gallery Photo 54" },
+          { src: "img/gallery/54 (2).jpg", alt: "Gallery Photo 54 (2)" },
+          { src: "img/gallery/55.jpg", alt: "Gallery Photo 55" },
+          { src: "img/gallery/57.jpg", alt: "Gallery Photo 57" },
+          { src: "img/gallery/58.jpg", alt: "Gallery Photo 58" },
+          { src: "img/gallery/58 (2).jpg", alt: "Gallery Photo 58 (2)" },
+          { src: "img/gallery/61.jpg", alt: "Gallery Photo 61" },
+          { src: "img/gallery/62.jpg", alt: "Gallery Photo 62" },
+          { src: "img/gallery/63.jpg", alt: "Gallery Photo 63" },
+          { src: "img/gallery/64.jpg", alt: "Gallery Photo 64" },
+          { src: "img/gallery/64a.jpg", alt: "Gallery Photo 64a" },
+          { src: "img/gallery/66.jpg", alt: "Gallery Photo 66" },
+          { src: "img/gallery/66 (2).jpg", alt: "Gallery Photo 66 (2)" },
+          { src: "img/gallery/67.jpg", alt: "Gallery Photo 67" },
+          { src: "img/gallery/70.jpg", alt: "Gallery Photo 70" },
+          { src: "img/gallery/72.jpg", alt: "Gallery Photo 72" },
+          { src: "img/gallery/72 (2).jpg", alt: "Gallery Photo 72 (2)" },
+          { src: "img/gallery/73.jpg", alt: "Gallery Photo 73" },
+          { src: "img/gallery/76.jpg", alt: "Gallery Photo 76" },
+          { src: "img/gallery/76 (2).jpg", alt: "Gallery Photo 76 (2)" },
+          { src: "img/gallery/76 (3).jpg", alt: "Gallery Photo 76 (3)" },
+          { src: "img/gallery/77.jpg", alt: "Gallery Photo 77" },
+          { src: "img/gallery/86.jpg", alt: "Gallery Photo 86" },
+          { src: "img/gallery/87.jpg", alt: "Gallery Photo 87" },
+          { src: "img/gallery/88.jpg", alt: "Gallery Photo 88" },
+          { src: "img/gallery/88 (2).jpg", alt: "Gallery Photo 88 (2)" },
+          { src: "img/gallery/89.jpg", alt: "Gallery Photo 89" },
+          { src: "img/gallery/90.jpg", alt: "Gallery Photo 90" },
+          { src: "img/gallery/90 (2).jpg", alt: "Gallery Photo 90 (2)" },
+          { src: "img/gallery/91.jpg", alt: "Gallery Photo 91" },
+          { src: "img/gallery/92.jpg", alt: "Gallery Photo 92" },
+          { src: "img/gallery/93.1.jpg", alt: "Gallery Photo 93.1" },
+          { src: "img/gallery/93.jpg", alt: "Gallery Photo 93" },
+          { src: "img/gallery/101.jpg", alt: "Gallery Photo 101" },
+          { src: "img/gallery/102.jpg", alt: "Gallery Photo 102" },
+          { src: "img/gallery/104.jpg", alt: "Gallery Photo 104" },
+          { src: "img/gallery/107.jpg", alt: "Gallery Photo 107" },
+          { src: "img/gallery/109.jpg", alt: "Gallery Photo 109" },
+          { src: "img/gallery/111.jpg", alt: "Gallery Photo 111" },
+          { src: "img/gallery/111 (2).jpg", alt: "Gallery Photo 111 (2)" },
+          { src: "img/gallery/111 (3).jpg", alt: "Gallery Photo 111 (3)" },
+          { src: "img/gallery/112.jpg", alt: "Gallery Photo 112" },
+          { src: "img/gallery/116.jpg", alt: "Gallery Photo 116" },
+          { src: "img/gallery/117.jpg", alt: "Gallery Photo 117" },
+          { src: "img/gallery/118.jpg", alt: "Gallery Photo 118" },
+          { src: "img/gallery/120.jpg", alt: "Gallery Photo 120" },
+          { src: "img/gallery/123.jpg", alt: "Gallery Photo 123" },
+          { src: "img/gallery/130.jpg", alt: "Gallery Photo 130" },
+          { src: "img/gallery/134.jpg", alt: "Gallery Photo 134" },
+          { src: "img/gallery/137.jpg", alt: "Gallery Photo 137" },
+          { src: "img/gallery/138a.jpg", alt: "Gallery Photo 138a" },
+          { src: "img/gallery/better one for kev1.jpg", alt: "Gallery Photo" },
+          { src: "img/gallery/Feedback header.jpg", alt: "Feedback Header" },
+          { src: "img/gallery/flo.jpg", alt: "Gallery Photo Flo" },
+          { src: "img/gallery/flo1.jpg", alt: "Gallery Photo Flo 1" }
+        ];
+
+        const grid = document.getElementById("photo-grid");
+        const sentinel = document.getElementById("scroll-sentinel");
+        const modal = document.getElementById("image-modal");
+        const modalImg = document.getElementById("modal-image");
+        const closeBtn = document.getElementById("modal-close");
+        const prevBtn = document.getElementById("modal-prev");
+        const nextBtn = document.getElementById("modal-next");
+
+        const BATCH_SIZE = 16;
+        let loadedCount = 0;
+        let currentIndex = 0;
+
+        // Preload image object cache to make lightbox switching instant
+        function preloadImage(url) {
+          if (!url) return;
+          const img = new Image();
+          img.src = url;
+        }
+
+        function loadMoreImages() {
+          if (loadedCount >= galleryImages.length) return;
+
+          const nextBatch = galleryImages.slice(loadedCount, loadedCount + BATCH_SIZE);
+          const fragment = document.createDocumentFragment();
+
+          nextBatch.forEach((itemData, index) => {
+            const globalIndex = loadedCount + index;
+            const item = document.createElement("div");
+            item.className = "grid-item";
+
+            const img = document.createElement("img");
+            img.src = itemData.src;
+            img.alt = itemData.alt;
+            img.loading = "lazy";
+            img.decoding = "async";
+
+            // If already cached, fade in immediately; otherwise wait for load
+            if (img.complete) {
+              img.classList.add("loaded");
+            } else {
+              img.addEventListener("load", () => img.classList.add("loaded"));
+            }
+
+            item.appendChild(img);
+            item.addEventListener("click", () => showModal(globalIndex));
+            fragment.appendChild(item);
+          });
+
+          grid.appendChild(fragment);
+          loadedCount += nextBatch.length;
+        }
+
+        // Trigger batch load 400px before reaching page bottom
+        const observer = new IntersectionObserver(
+          (entries) => {
+            if (entries[0].isIntersecting) {
+              loadMoreImages();
+            }
+          },
+          { rootMargin: "400px" }
+        );
+
+        if (sentinel) {
+          observer.observe(sentinel);
+        }
+
+        function showModal(index) {
+          currentIndex = index;
+          modalImg.src = galleryImages[currentIndex].src;
+          modalImg.alt = galleryImages[currentIndex].alt;
+          modal.setAttribute("aria-hidden", "false");
+
+          // Preload previous and next images for instant arrow key switching
+          const nextIdx = (currentIndex + 1) % galleryImages.length;
+          const prevIdx = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+          preloadImage(galleryImages[nextIdx].src);
+          preloadImage(galleryImages[prevIdx].src);
+        }
+
+        function closeModal() {
+          modal.setAttribute("aria-hidden", "true");
+        }
+
+        closeBtn.addEventListener("click", closeModal);
+
+        prevBtn.addEventListener("click", () => {
+          currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+          showModal(currentIndex);
+        });
+
+        nextBtn.addEventListener("click", () => {
+          currentIndex = (currentIndex + 1) % galleryImages.length;
+          showModal(currentIndex);
+        });
+
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (modal.getAttribute("aria-hidden") === "false") {
+            if (e.key === "Escape") closeModal();
+            if (e.key === "ArrowLeft") prevBtn.click();
+            if (e.key === "ArrowRight") nextBtn.click();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

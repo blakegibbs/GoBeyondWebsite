@@ -1768,6 +1768,153 @@ button[type=submit]:hover, button[type=submit]:focus {
   }
 }
 
+.gallery-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto 4rem auto;
+  padding: 0 1.5rem;
+}
+.gallery-container .gallery-title {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  color: #b99273;
+}
+.gallery-container .gallery-subtitle {
+  text-align: center;
+  color: #555;
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+}
+
+/* CSS Multi-column Masonry Layout */
+.photo-grid {
+  column-count: 4;
+  column-gap: 15px;
+  width: 100%;
+}
+
+.grid-item {
+  break-inside: avoid;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background-color: #e2e8f0; /* Low-contrast placeholder color while loading */
+  cursor: pointer;
+  /* Performance optimizations */
+  contain: content;
+  will-change: transform;
+  transition: transform 0.25s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.25s ease;
+}
+.grid-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  content-visibility: auto;
+  transition: opacity 0.3s ease;
+}
+.grid-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+.grid-item:hover img {
+  opacity: 0.92;
+}
+
+.scroll-sentinel {
+  height: 20px;
+  width: 100%;
+}
+
+/* Responsive Grid Breakpoints */
+@media (max-width: 1200px) {
+  .photo-grid {
+    column-count: 3;
+  }
+}
+@media (max-width: 800px) {
+  .photo-grid {
+    column-count: 2;
+  }
+}
+@media (max-width: 560px) {
+  .photo-grid {
+    column-count: 1;
+  }
+}
+/* Modal Overlay Styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+}
+.modal[aria-hidden=false] {
+  display: flex;
+}
+.modal .modal-image-wrapper {
+  position: relative;
+  max-width: 85vw;
+  max-height: 85vh;
+}
+.modal .modal-content {
+  display: block;
+  max-width: 100%;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  object-fit: contain;
+}
+.modal .modal-close-button {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.modal .modal-close-button:hover {
+  color: #b99273;
+}
+.modal .modal-prev,
+.modal .modal-next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  user-select: none;
+  border-radius: 4px;
+}
+.modal .modal-prev:hover,
+.modal .modal-next:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #b99273;
+}
+.modal .modal-prev {
+  left: 20px;
+}
+.modal .modal-next {
+  right: 20px;
+}
+
 * {
   box-sizing: border-box;
 }
