@@ -1,64 +1,221 @@
+// ==========================================
+// Testimonial Slider & Card Sizing Config
+// ==========================================
+$card-width: 520px;       // Adjust card width here
+$card-height: 620px;      // Adjust card height here
+$card-gap: 32px;          // Spacing between cards
+$card-border-radius: 12px;
+
 .testimonials {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0 80px 0;
+  margin: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+}
+
+.testimonial-slider {
+  position: relative;
+  overflow: hidden;
+  padding: 20px 0;
+  margin: 0 auto;
+  width: 85vw;
+  max-width: 1400px;
+
+  // Navigation Arrows
+  .pre-btn,
+  .nxt-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      background: #000;
+      transform: translateY(-50%) scale(1.05);
+
+      img {
+        filter: invert(1);
+      }
+    }
+
+    img {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .pre-btn {
+    left: 10px;
+    img {
+      transform: rotate(180deg);
+    }
+  }
+
+  .nxt-btn {
+    right: 10px;
+  }
+}
+
+.testimonial-container {
+  display: flex;
+  gap: $card-gap;
+  padding: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+// Base Card Structure
+.testimonial-card {
+  flex: 0 0 auto;
+  width: $card-width;
+  height: $card-height;
+  border-radius: $card-border-radius;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  }
+}
+
+// ------------------------------------------
+// 1. Text Quote Card Variant (White Background)
+// ------------------------------------------
+.card-quote {
+  background-color: #ffffff;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .quote-content {
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 50vh;
-    padding: 40px 0;
-    margin: 0;
-    background-color: white;
-    overflow-x: hidden;
+    justify-content: space-between;
+  }
 
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        width: 90%;
-        max-width: 1100px;
+  .quote-icon {
+    font-size: 2.2rem;
+    color: $secondary-colour;
+    opacity: 0.8;
+  }
+
+  .quote-text {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #333333;
+    font-style: italic;
+    margin: 20px 0;
+  }
+
+  .author-info {
+    border-top: 2px solid $secondary-colour;
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+
+    .author-name {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #111111;
     }
 
-    .grid-element {
-        width: 100%;
-        background-color: white;
+    .author-role {
+      font-size: 0.9rem;
+      color: #666666;
+      margin-top: 2px;
+    }
+  }
+}
 
-        .wpb_video_widget {
-            width: 100%;
-        }
+// ------------------------------------------
+// 2. Full-Bleed Image Portrait Card Variant
+// ------------------------------------------
+.card-portrait {
+  background-color: #000;
 
-        .wpb_video_wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            width: 100%;
+  .portrait-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
 
-            iframe {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                border: 0;
-            }
-        }
+  &:hover .portrait-img {
+    transform: scale(1.03);
+  }
+
+  .portrait-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px 24px 24px 24px;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(0, 0, 0, 0.4) 70%,
+      transparent 100%
+    );
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+
+    .portrait-caption {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin: 0 0 6px 0;
+      line-height: 1.3;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
     }
 
-    @media (max-width: 992px) {
-
-        .grid-container {
-            grid-template-columns: repeat(2, 1fr);
-            max-width: 700px;
-            gap: 15px;
-        }
+    .portrait-author {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      font-style: italic;
     }
+  }
+}
 
-    @media (max-width: 576px) {
+// Responsive adjustments for smaller devices
+@media (max-width: 768px) {
+  .testimonial-card {
+    width: 80vw;
+    height: 480px;
+  }
 
-        .grid-container {
-            grid-template-columns: 1fr;
-            width: 95%;
-            max-width: 400px;
-            gap: 20px;
-        }
+  .card-quote {
+    padding: 24px;
+
+    .quote-text {
+      font-size: 1rem;
     }
+  }
 }
