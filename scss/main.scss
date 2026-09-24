@@ -359,7 +359,7 @@ main {
 .get-in-touch {
   background-color: rgb(34, 34, 34);
   width: 100%;
-  height: 55vh;
+  height: 35vh;
   padding-left: 50px;
 
   h1 {
@@ -545,6 +545,14 @@ main {
     p {
       font-size: 14px;
     }
+  }
+
+  .gb-logo{
+    max-height: 150px;
+  }
+
+  .member-of{
+    max-width: 300px !important;
   }
 }
 

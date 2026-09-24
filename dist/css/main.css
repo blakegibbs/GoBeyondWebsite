@@ -1969,7 +1969,7 @@ main .footer .phone {
 .get-in-touch {
   background-color: rgb(34, 34, 34);
   width: 100%;
-  height: 55vh;
+  height: 35vh;
   padding-left: 50px;
 }
 .get-in-touch h1 {
@@ -2126,6 +2126,12 @@ main .footer .phone {
 }
 .pre-footer .column p {
   font-size: 14px;
+}
+.pre-footer .gb-logo {
+  max-height: 150px;
+}
+.pre-footer .member-of {
+  max-width: 300px !important;
 }
 
 /* ==========================================================================
